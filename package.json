@@ -2,7 +2,7 @@
   "name": "mahmoud-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://abu-ellil.github.io/mahmoud-portfolio",
+  "homepage": ".",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/typography": "^0.5.16",
