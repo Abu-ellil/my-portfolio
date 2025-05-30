@@ -95,7 +95,7 @@ const About: React.FC = () => {
                 <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">2+</div>
+                <div className="text-3xl font-bold gradient-text">4+</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
               </div>
               <div className="text-center">

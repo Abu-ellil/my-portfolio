@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Download, Mail, Github, Linkedin } from 'lucide-react';
 import { DiscordIcon, InstagramIcon, TwitterIcon, YouTubeIcon } from './SocialIcons';
 
 const Hero: React.FC = () => {
@@ -81,14 +81,16 @@ const Hero: React.FC = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           variants={itemVariants}
         >
-          <motion.button
-            className="btn-primary flex items-center justify-center gap-2"
+          <motion.a
+            href="/MahmoudAboellilFullStack.pdf"
+            download="Mahmoud_Abuellil_FullStack_Resume.pdf"
+            className="btn-primary flex items-center justify-center gap-2 download-btn"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Download className="w-5 h-5" />
-            View Resume
-          </motion.button>
+            Download Resume
+          </motion.a>
 
           <motion.button
             className="btn-secondary flex items-center justify-center gap-2"
@@ -129,7 +131,7 @@ const Hero: React.FC = () => {
           </motion.a>
 
           <motion.a
-            href="https://discord.gg/k3P3mEtg"
+            href="https://discord.gg/sSfMCsz4"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-indigo-500"
@@ -170,17 +172,6 @@ const Hero: React.FC = () => {
             title="YouTube"
           >
             <YouTubeIcon className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            href="https://abu-ellil.github.io/portfolio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-purple-600"
-            whileHover={{ y: -5 }}
-            title="Portfolio"
-          >
-            <ExternalLink className="w-6 h-6" />
           </motion.a>
         </motion.div>
 

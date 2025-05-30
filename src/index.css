@@ -33,4 +33,12 @@
   .btn-secondary {
     @apply border-2 border-blue-600 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-blue-600 hover:text-white;
   }
+
+  .download-btn {
+    @apply no-underline;
+  }
+
+  .download-btn:hover {
+    @apply no-underline;
+  }
 }

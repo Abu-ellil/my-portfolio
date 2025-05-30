@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,6 +64,18 @@ const Header: React.FC = () => {
               {item.name}
             </motion.button>
           ))}
+
+          {/* Download Resume Button */}
+          <motion.a
+            href="/MahmoudAboellilFullStack.pdf"
+            download="Mahmoud_Abuellil_FullStack_Resume.pdf"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center space-x-2 download-btn"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Download className="w-4 h-4" />
+            <span>Resume</span>
+          </motion.a>
         </div>
 
         {/* Mobile Menu Button */}

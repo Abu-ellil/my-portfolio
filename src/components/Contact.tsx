@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
 import { DiscordIcon, InstagramIcon, TwitterIcon, YouTubeIcon } from './SocialIcons';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -45,16 +46,52 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      // Check if EmailJS is configured
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        // Use EmailJS if configured
+        const templateParams = {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Mahmoud Abuellil',
+        };
+
+        const result = await emailjs.send(
+          serviceId,
+          templateId,
+          templateParams,
+          publicKey
+        );
+
+        console.log('Email sent successfully:', result);
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        // Fallback to mailto if EmailJS not configured
+        const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n\n` +
+          `Message:\n${formData.message}`
+        );
+
+        const mailtoLink = `mailto:mr.abuellil@gmail.com?subject=${subject}&body=${body}`;
+        window.open(mailtoLink, '_blank');
+
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      }
     } catch (error) {
+      console.error('Error sending email:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 3000);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
 
@@ -62,14 +99,14 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "mahmoud.abuellil@example.com",
-      link: "mailto:mahmoud.abuellil@example.com"
+      value: "mr.abuellil@gmail.com",
+      link: "mailto:mr.abuellil@gmail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       label: "Phone",
-      value: "+20 123 456 7890",
-      link: "tel:+201234567890"
+      value: "+20 122 108 9249",
+      link: "tel:+201221089249"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -89,13 +126,13 @@ const Contact: React.FC = () => {
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-6 h-6" />,
-      url: "https://linkedin.com/in/abu-ellil-806619254",
+      url: "https://www.linkedin.com/in/abu-ellil",
       color: "hover:text-blue-600"
     },
     {
       name: "Discord",
       icon: <DiscordIcon className="w-6 h-6" />,
-      url: "https://discord.gg/k3P3mEtg",
+      url: "https://discord.gg/sSfMCsz4",
       color: "hover:text-indigo-500"
     },
     {
@@ -116,12 +153,7 @@ const Contact: React.FC = () => {
       url: "https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g",
       color: "hover:text-red-500"
     },
-    {
-      name: "Portfolio",
-      icon: <ExternalLink className="w-6 h-6" />,
-      url: "https://abu-ellil.github.io/portfolio/",
-      color: "hover:text-purple-600"
-    }
+
   ];
 
   return (
@@ -301,9 +333,10 @@ const Contact: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg text-green-700 dark:text-green-300"
+                    className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg text-green-700 dark:text-green-300 flex items-center space-x-2"
                   >
-                    ✅ Message sent successfully! I'll get back to you soon.
+                    <CheckCircle className="w-5 h-5" />
+                    <span>Message sent successfully! I'll get back to you soon.</span>
                   </motion.div>
                 )}
 
@@ -311,9 +344,10 @@ const Contact: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-lg text-red-700 dark:text-red-300"
+                    className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-lg text-red-700 dark:text-red-300 flex items-center space-x-2"
                   >
-                    ❌ Something went wrong. Please try again or contact me directly.
+                    <AlertCircle className="w-5 h-5" />
+                    <span>Something went wrong. Please try again or contact me directly.</span>
                   </motion.div>
                 )}
               </div>

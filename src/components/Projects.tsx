@@ -43,7 +43,7 @@ const Projects: React.FC = () => {
       technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
       github: "https://github.com/Abu-ellil/social-app",
       demo: "https://social-app-wahy.vercel.app/",
-      image: "https://user-images.githubusercontent.com/94858304/250264715-31cbb966-2312-4e9d-b5ec-c5ab299070af.png",
+      image: "https://res.cloudinary.com/masoft/image/upload/v1748557839/portifolio-assets/Screenshot_2025-05-29_at_6.25.58_PM_ah3bk9.png",
       featured: true
     },
     {
@@ -93,7 +93,7 @@ const Projects: React.FC = () => {
       technologies: ["React", "Node.js", "Express", "MongoDB"],
       github: "https://github.com/Abu-ellil/jops-app",
       demo: "#",
-      image: "https://user-images.githubusercontent.com/94858304/250264715-31cbb966-2312-4e9d-b5ec-c5ab299070af.png",
+      image: "https://res.cloudinary.com/masoft/image/upload/v1748557838/portifolio-assets/Screenshot_2025-05-29_at_6.27.15_PM_up80zl.png",
       featured: false
     },
     {
@@ -103,7 +103,7 @@ const Projects: React.FC = () => {
       technologies: ["React Native", "Expo", "JavaScript", "AsyncStorage"],
       github: "https://github.com/Abu-ellil/react_native_quizapp",
       demo: "#",
-      image: "https://user-images.githubusercontent.com/94858304/250264715-31cbb966-2312-4e9d-b5ec-c5ab299070af.png",
+      image: "https://res.cloudinary.com/masoft/image/upload/v1748557836/portifolio-assets/Screenshot_2025-05-29_at_6.27.32_PM_xeszg7.png",
       featured: false
     }
   ];

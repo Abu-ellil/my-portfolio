@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, ExternalLink, Heart, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Heart, ArrowUp } from 'lucide-react';
 import { DiscordIcon, InstagramIcon, TwitterIcon, YouTubeIcon } from './SocialIcons';
 
 const Footer: React.FC = () => {
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
     {
       name: "Discord",
       icon: <DiscordIcon className="w-5 h-5" />,
-      url: "https://discord.gg/k3P3mEtg",
+      url: "https://discord.gg/sSfMCsz4",
       color: "hover:text-indigo-500"
     },
     {
@@ -43,12 +43,7 @@ const Footer: React.FC = () => {
       url: "https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g",
       color: "hover:text-red-500"
     },
-    {
-      name: "Portfolio",
-      icon: <ExternalLink className="w-5 h-5" />,
-      url: "https://abu-ellil.github.io/portfolio/",
-      color: "hover:text-purple-600"
-    }
+
   ];
 
   const quickLinks = [
@@ -146,7 +141,7 @@ const Footer: React.FC = () => {
           >
             <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
             <div className="space-y-2 text-gray-400">
-              <p>📧 mahmoud.abuellil@example.com</p>
+              <p>📧 mr.abuellil@gmail.com</p>
               <p>📱 +20 123 456 7890</p>
               <p>📍 Cairo, Egypt</p>
             </div>
