@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
-import { FaDiscord, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { IconType } from 'react-icons';
+import { DiscordIcon, InstagramIcon, TwitterIcon, YouTubeIcon } from './SocialIcons';
 
 const Hero: React.FC = () => {
   const containerVariants = {
@@ -137,7 +136,7 @@ const Hero: React.FC = () => {
             whileHover={{ y: -5 }}
             title="Discord"
           >
-            {React.createElement(FaDiscord as IconType, { className: "w-6 h-6" })}
+            <DiscordIcon className="w-6 h-6" />
           </motion.a>
 
           <motion.a
@@ -148,7 +147,7 @@ const Hero: React.FC = () => {
             whileHover={{ y: -5 }}
             title="Instagram"
           >
-            {React.createElement(FaInstagram as IconType, { className: "w-6 h-6" })}
+            <InstagramIcon className="w-6 h-6" />
           </motion.a>
 
           <motion.a
@@ -159,7 +158,7 @@ const Hero: React.FC = () => {
             whileHover={{ y: -5 }}
             title="Twitter"
           >
-            {React.createElement(FaTwitter as IconType, { className: "w-6 h-6" })}
+            <TwitterIcon className="w-6 h-6" />
           </motion.a>
 
           <motion.a
@@ -170,7 +169,7 @@ const Hero: React.FC = () => {
             whileHover={{ y: -5 }}
             title="YouTube"
           >
-            {React.createElement(FaYoutube as IconType, { className: "w-6 h-6" })}
+            <YouTubeIcon className="w-6 h-6" />
           </motion.a>
 
           <motion.a

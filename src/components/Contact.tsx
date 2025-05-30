@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react';
-import { FaDiscord, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { IconType } from 'react-icons';
+import { DiscordIcon, InstagramIcon, TwitterIcon, YouTubeIcon } from './SocialIcons';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -95,25 +94,25 @@ const Contact: React.FC = () => {
     },
     {
       name: "Discord",
-      icon: React.createElement(FaDiscord as IconType, { className: "w-6 h-6" }),
+      icon: <DiscordIcon className="w-6 h-6" />,
       url: "https://discord.gg/k3P3mEtg",
       color: "hover:text-indigo-500"
     },
     {
       name: "Instagram",
-      icon: React.createElement(FaInstagram as IconType, { className: "w-6 h-6" }),
+      icon: <InstagramIcon className="w-6 h-6" />,
       url: "https://instagram.com/mahmoud.aboellil",
       color: "hover:text-pink-500"
     },
     {
       name: "Twitter",
-      icon: React.createElement(FaTwitter as IconType, { className: "w-6 h-6" }),
+      icon: <TwitterIcon className="w-6 h-6" />,
       url: "https://twitter.com/MahmoudAboelli3",
       color: "hover:text-blue-400"
     },
     {
       name: "YouTube",
-      icon: React.createElement(FaYoutube as IconType, { className: "w-6 h-6" }),
+      icon: <YouTubeIcon className="w-6 h-6" />,
       url: "https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g",
       color: "hover:text-red-500"
     },
