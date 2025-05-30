@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
       icon: <Globe className="w-6 h-6" />,
       technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
       github: "https://github.com/Abu-ellil/mern-project-todo",
-      demo: "https://mern-project-todo-kalbonyan.vercel.app/",
+      demo: "https://mern-project-todo-kalbonyan.vercel.app/login",
       image: "https://user-images.githubusercontent.com/94858304/250264715-31cbb966-2312-4e9d-b5ec-c5ab299070af.png",
       featured: true
     },

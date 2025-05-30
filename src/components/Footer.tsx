@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, ExternalLink, Heart, ArrowUp } from 'lucide-react';
+import { FaDiscord, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -15,13 +17,37 @@ const Footer: React.FC = () => {
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
-      url: "https://linkedin.com/in/mahmoudabuellil",
+      url: "https://linkedin.com/in/abu-ellil-806619254",
       color: "hover:text-blue-600"
+    },
+    {
+      name: "Discord",
+      icon: React.createElement(FaDiscord as IconType, { className: "w-5 h-5" }),
+      url: "https://discord.gg/k3P3mEtg",
+      color: "hover:text-indigo-500"
+    },
+    {
+      name: "Instagram",
+      icon: React.createElement(FaInstagram as IconType, { className: "w-5 h-5" }),
+      url: "https://instagram.com/mahmoud.aboellil",
+      color: "hover:text-pink-500"
+    },
+    {
+      name: "Twitter",
+      icon: React.createElement(FaTwitter as IconType, { className: "w-5 h-5" }),
+      url: "https://twitter.com/MahmoudAboelli3",
+      color: "hover:text-blue-400"
+    },
+    {
+      name: "YouTube",
+      icon: React.createElement(FaYoutube as IconType, { className: "w-5 h-5" }),
+      url: "https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g",
+      color: "hover:text-red-500"
     },
     {
       name: "Portfolio",
       icon: <ExternalLink className="w-5 h-5" />,
-      url: "#",
+      url: "https://abu-ellil.github.io/portfolio/",
       color: "hover:text-purple-600"
     }
   ];
@@ -73,16 +99,17 @@ const Footer: React.FC = () => {
               MERN Stack & React Native Developer passionate about creating
               exceptional digital experiences that solve real-world problems.
             </p>
-            <div className="flex space-x-4">
+            <div className="grid grid-cols-4 gap-3 max-w-xs">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-2 bg-gray-800 rounded-lg transition-all duration-300 ${social.color}`}
+                  className={`p-2 bg-gray-800 rounded-lg transition-all duration-300 ${social.color} flex items-center justify-center`}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
+                  title={social.name}
                 >
                   {social.icon}
                 </motion.a>

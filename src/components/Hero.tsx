@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { FaDiscord, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
 const Hero: React.FC = () => {
   const containerVariants = {
@@ -40,7 +42,12 @@ const Hero: React.FC = () => {
         >
           <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-600 to-purple-600 p-1">
             <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-              <span className="text-4xl font-bold text-gray-600 dark:text-gray-300">MA</span>
+              {/* <span className="text-4xl font-bold text-gray-600 dark:text-gray-300">MA</span> */}
+              <img
+                src="https://avatars.githubusercontent.com/u/94858304?v=4"
+                alt="Mahmoud Abuellil"
+                className="w-full h-full rounded-full object-cover"
+              />
             </div>
           </div>
         </motion.div>
@@ -97,35 +104,82 @@ const Hero: React.FC = () => {
 
         {/* Social Links */}
         <motion.div
-          className="flex justify-center space-x-6"
+          className="flex justify-center space-x-4 flex-wrap gap-2"
           variants={itemVariants}
         >
           <motion.a
             href="https://github.com/Abu-ellil"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300"
+            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-gray-700 dark:hover:text-gray-300"
             whileHover={{ y: -5 }}
+            title="GitHub"
           >
             <Github className="w-6 h-6" />
           </motion.a>
 
           <motion.a
-            href="https://linkedin.com/in/mahmoudabuellil"
+            href="https://linkedin.com/in/abu-ellil-806619254"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300"
+            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-blue-600"
             whileHover={{ y: -5 }}
+            title="LinkedIn"
           >
             <Linkedin className="w-6 h-6" />
           </motion.a>
 
           <motion.a
-            href="#"
+            href="https://discord.gg/k3P3mEtg"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300"
+            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-indigo-500"
             whileHover={{ y: -5 }}
+            title="Discord"
+          >
+            {React.createElement(FaDiscord as IconType, { className: "w-6 h-6" })}
+          </motion.a>
+
+          <motion.a
+            href="https://instagram.com/mahmoud.aboellil"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-pink-500"
+            whileHover={{ y: -5 }}
+            title="Instagram"
+          >
+            {React.createElement(FaInstagram as IconType, { className: "w-6 h-6" })}
+          </motion.a>
+
+          <motion.a
+            href="https://twitter.com/MahmoudAboelli3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-blue-400"
+            whileHover={{ y: -5 }}
+            title="Twitter"
+          >
+            {React.createElement(FaTwitter as IconType, { className: "w-6 h-6" })}
+          </motion.a>
+
+          <motion.a
+            href="https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-red-500"
+            whileHover={{ y: -5 }}
+            title="YouTube"
+          >
+            {React.createElement(FaYoutube as IconType, { className: "w-6 h-6" })}
+          </motion.a>
+
+          <motion.a
+            href="https://abu-ellil.github.io/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-purple-600"
+            whileHover={{ y: -5 }}
+            title="Portfolio"
           >
             <ExternalLink className="w-6 h-6" />
           </motion.a>

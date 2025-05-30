@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { FaDiscord, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +45,7 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -82,19 +84,43 @@ const Contact: React.FC = () => {
     {
       name: "GitHub",
       icon: <Github className="w-6 h-6" />,
-      url: "https://github.com/mahmoudabuellil",
+      url: "https://github.com/Abu-ellil",
       color: "hover:text-gray-700 dark:hover:text-gray-300"
     },
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-6 h-6" />,
-      url: "https://linkedin.com/in/mahmoudabuellil",
+      url: "https://linkedin.com/in/abu-ellil-806619254",
       color: "hover:text-blue-600"
+    },
+    {
+      name: "Discord",
+      icon: React.createElement(FaDiscord as IconType, { className: "w-6 h-6" }),
+      url: "https://discord.gg/k3P3mEtg",
+      color: "hover:text-indigo-500"
+    },
+    {
+      name: "Instagram",
+      icon: React.createElement(FaInstagram as IconType, { className: "w-6 h-6" }),
+      url: "https://instagram.com/mahmoud.aboellil",
+      color: "hover:text-pink-500"
+    },
+    {
+      name: "Twitter",
+      icon: React.createElement(FaTwitter as IconType, { className: "w-6 h-6" }),
+      url: "https://twitter.com/MahmoudAboelli3",
+      color: "hover:text-blue-400"
+    },
+    {
+      name: "YouTube",
+      icon: React.createElement(FaYoutube as IconType, { className: "w-6 h-6" }),
+      url: "https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g",
+      color: "hover:text-red-500"
     },
     {
       name: "Portfolio",
       icon: <ExternalLink className="w-6 h-6" />,
-      url: "#",
+      url: "https://abu-ellil.github.io/portfolio/",
       color: "hover:text-purple-600"
     }
   ];
@@ -125,7 +151,7 @@ const Contact: React.FC = () => {
             <h3 className="text-2xl font-semibold mb-8 text-gray-800 dark:text-gray-200">
               Let's Connect
             </h3>
-            
+
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
                 <motion.a
@@ -154,16 +180,17 @@ const Contact: React.FC = () => {
               <h4 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">
                 Follow Me
               </h4>
-              <div className="flex space-x-4">
+              <div className="grid grid-cols-4 gap-3 max-w-xs">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 glass rounded-xl transition-all duration-300 ${social.color}`}
+                    className={`p-3 glass rounded-xl transition-all duration-300 ${social.color} flex items-center justify-center`}
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
+                    title={social.name}
                   >
                     {social.icon}
                   </motion.a>
@@ -172,7 +199,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Availability */}
-            <motion.div 
+            <motion.div
               className="mt-8 p-6 glass rounded-xl"
               whileHover={{ scale: 1.02 }}
             >
@@ -186,7 +213,7 @@ const Contact: React.FC = () => {
                 </span>
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
-                I'm currently accepting new freelance projects and full-time opportunities. 
+                I'm currently accepting new freelance projects and full-time opportunities.
                 Let's discuss your requirements!
               </p>
             </motion.div>
