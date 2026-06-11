@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Mail, Github, Linkedin } from 'lucide-react';
-import { DiscordIcon, InstagramIcon, TwitterIcon, YouTubeIcon } from './SocialIcons';
+import { Download, Mail, Github, Linkedin, ChevronDown, Globe, MessageCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const containerVariants = {
@@ -10,38 +9,65 @@ const Hero: React.FC = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.15,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
   };
 
+  const socialLinks = [
+    { icon: <Github className="w-5 h-5" />, href: 'https://github.com/Abu-ellil', label: 'GitHub', hover: 'hover:text-white' },
+    { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/abu-ellil/', label: 'LinkedIn', hover: 'hover:text-blue-400' },
+    { icon: <Globe className="w-5 h-5" />, href: 'https://aboellil.dev', label: 'Website', hover: 'hover:text-cyan-400' },
+    { icon: <MessageCircle className="w-5 h-5" />, href: 'https://mostaql.com/u/AbuEllil', label: 'Mostaql', hover: 'hover:text-emerald-400' },
+  ];
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 z-0">
+        {/* Gradient Spheres */}
+        <div className="absolute top-[-200px] right-[-200px] w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] animate-[float_20s_ease-in-out_infinite]" />
+        <div className="absolute bottom-[-150px] left-[-150px] w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] animate-[float_20s_ease-in-out_infinite_5s]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] animate-[float_20s_ease-in-out_infinite_10s]" />
+        
+        {/* Grid Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)',
+            backgroundSize: '100px 100px',
+          }}
+        />
+      </div>
+
       <motion.div
-        className="container mx-auto text-center"
+        className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-24 pb-16"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
+        {/* Status Badge */}
+        <motion.div variants={itemVariants} className="mb-8">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm text-blue-400">
+            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+            Available for new opportunities
+          </span>
+        </motion.div>
+
         {/* Profile Image */}
-        <motion.div
-          className="mb-8"
-          variants={itemVariants}
-        >
-          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-600 to-purple-600 p-1">
-            <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-              {/* <span className="text-4xl font-bold text-gray-600 dark:text-gray-300">MA</span> */}
+        <motion.div variants={itemVariants} className="mb-8">
+          <div className="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-[3px] shadow-xl shadow-blue-500/20">
+            <div className="w-full h-full rounded-full bg-[#111] flex items-center justify-center overflow-hidden">
               <img
                 src="https://avatars.githubusercontent.com/u/94858304?v=4"
                 alt="Mahmoud Abuellil"
@@ -51,29 +77,41 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Name and Title */}
+        {/* Name */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-4"
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 font-['Space_Grotesk'] leading-tight"
           variants={itemVariants}
         >
-          <span className="gradient-text">Mahmoud Abuellil</span>
+          <span className="bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+            Mahmoud
+          </span>
+          <br />
+          <span className="gradient-text">Abuellil</span>
         </motion.h1>
 
+        {/* Arabic Name */}
+        <motion.p variants={itemVariants} className="text-lg text-gray-500 mb-4 font-arabic" dir="rtl">
+          محمود أبو عليل
+        </motion.p>
+
+        {/* Title */}
         <motion.h2
-          className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6"
+          className="text-xl md:text-2xl text-gray-300 mb-6 font-medium"
           variants={itemVariants}
         >
-          MERN Stack & React Native Developer
+          Full-Stack Engineer{' '}
+          <span className="text-gray-500">|</span>{' '}
+          <span className="gradient-text">MERN & React Native</span>
         </motion.h2>
 
-        {/* Short Intro */}
+        {/* Description */}
         <motion.p
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed"
+          className="text-gray-500 text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
           variants={itemVariants}
         >
-          Passionate full-stack developer specializing in building exceptional digital experiences
-          with modern web and mobile technologies. I create scalable, user-friendly applications
-          that solve real-world problems.
+          Building production-grade web, mobile & desktop applications with
+          4+ years of experience crafting scalable, real-world solutions that
+          users love.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -82,109 +120,62 @@ const Hero: React.FC = () => {
           variants={itemVariants}
         >
           <motion.a
-            href="/MahmoudAboellilFullStack.pdf"
-            download="Mahmoud_Abuellil_FullStack_Resume.pdf"
-            className="btn-primary flex items-center justify-center gap-2 download-btn"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Download className="w-5 h-5" />
-            Download Resume
-          </motion.a>
-
-          <motion.button
-            className="btn-secondary flex items-center justify-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            href="mailto:mr.abuellil@gmail.com"
+            className="btn-primary animate-pulse-glow flex items-center justify-center gap-2 text-base px-8 py-4"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
             <Mail className="w-5 h-5" />
-            Contact Me
-          </motion.button>
+            Hire Me
+          </motion.a>
+
+          <motion.a
+            href="/MahmoudAboellilFullStack.pdf"
+            download="Mahmoud_Abuellil_FullStack_Resume.pdf"
+            className="btn-secondary flex items-center justify-center gap-2 text-base px-8 py-4"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <Download className="w-5 h-5" />
+            Download CV
+          </motion.a>
         </motion.div>
 
         {/* Social Links */}
         <motion.div
-          className="flex justify-center space-x-4 flex-wrap gap-2"
+          className="flex justify-center gap-3"
           variants={itemVariants}
         >
-          <motion.a
-            href="https://github.com/Abu-ellil"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-gray-700 dark:hover:text-gray-300"
-            whileHover={{ y: -5 }}
-            title="GitHub"
-          >
-            <Github className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            href="https://linkedin.com/in/abu-ellil-806619254"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-blue-600"
-            whileHover={{ y: -5 }}
-            title="LinkedIn"
-          >
-            <Linkedin className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            href="https://discord.gg/sSfMCsz4"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-indigo-500"
-            whileHover={{ y: -5 }}
-            title="Discord"
-          >
-            <DiscordIcon className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            href="https://instagram.com/mahmoud.aboellil"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-pink-500"
-            whileHover={{ y: -5 }}
-            title="Instagram"
-          >
-            <InstagramIcon className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            href="https://twitter.com/MahmoudAboelli3"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-blue-400"
-            whileHover={{ y: -5 }}
-            title="Twitter"
-          >
-            <TwitterIcon className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            href="https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full glass hover:scale-110 transition-all duration-300 hover:text-red-500"
-            whileHover={{ y: -5 }}
-            title="YouTube"
-          >
-            <YouTubeIcon className="w-6 h-6" />
-          </motion.a>
+          {socialLinks.map((social) => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-3 rounded-xl glass text-gray-400 ${social.hover} transition-all duration-300`}
+              whileHover={{ y: -4, scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              title={social.label}
+            >
+              {social.icon}
+            </motion.a>
+          ))}
         </motion.div>
+      </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <button
+          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          className="flex flex-col items-center gap-2 text-gray-600 hover:text-gray-400 transition-colors"
         >
-          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2"></div>
-          </div>
-        </motion.div>
+          <span className="text-xs tracking-widest uppercase">Scroll</span>
+          <ChevronDown className="w-5 h-5" />
+        </button>
       </motion.div>
     </section>
   );

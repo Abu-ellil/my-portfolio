@@ -1,278 +1,191 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Smartphone, Globe, Users } from 'lucide-react';
+import {
+  Truck,
+  Leaf,
+  Scissors,
+  ShoppingCart,
+  MapPin,
+  MessageSquare,
+  Bell,
+  Wifi,
+  Cpu,
+  Globe,
+  Smartphone,
+  Monitor,
+  ExternalLink,
+} from 'lucide-react';
+
+const projects = [
+  {
+    title: 'Delivery Platform',
+    subtitle: 'Complete Delivery Ecosystem',
+    description:
+      'A production-grade delivery platform with 4 interconnected apps — Driver App, Store App, Admin Panel, and Landing Site. Features real-time GPS tracking, in-app chat, order management, push notifications, and role-based access control.',
+    tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.io', 'Expo'],
+    icon: <Truck className="w-6 h-6" />,
+    gradient: 'from-blue-600 to-cyan-500',
+    features: ['Real-time GPS Tracking', 'In-app Chat', 'Push Notifications', 'Multi-role System'],
+    color: 'blue',
+  },
+  {
+    title: 'Greeno-AI',
+    subtitle: 'AI Agriculture Assistant',
+    description:
+      'AI-powered agriculture assistant for farmers. Diagnoses plant diseases from leaf photos via camera, provides smart crop planning based on season and region, and delivers real-time weather alerts with intelligent caching. Works offline-first for rural areas.',
+    tech: ['React Native', 'Node.js', 'AI APIs', 'Firebase', 'Expo'],
+    icon: <Leaf className="w-6 h-6" />,
+    gradient: 'from-emerald-600 to-green-400',
+    features: ['Plant Disease Diagnosis', 'Smart Crop Planning', 'Offline-First', 'Weather Alerts'],
+    color: 'emerald',
+  },
+  {
+    title: 'Etiquette Tailor',
+    subtitle: 'Tailoring Shop Management',
+    description:
+      'Professional desktop system for women\'s tailoring shops with multi-branch management. Handles full order lifecycle, worker task assignment with automatic wage calculation, bilingual invoices (Arabic + English), thermal printing, and comprehensive reporting.',
+    tech: ['Electron', 'React', 'TypeScript', 'SQLite', 'Tailwind CSS', 'shadcn/ui'],
+    icon: <Scissors className="w-6 h-6" />,
+    gradient: 'from-purple-600 to-pink-500',
+    features: ['Multi-branch Management', 'Bilingual Invoices', 'Wage Calculation', 'Auto Backup'],
+    color: 'purple',
+  },
+  {
+    title: 'Soog App',
+    subtitle: 'Full E-commerce Platform',
+    description:
+      'Complete e-commerce solution with product listings, advanced filtering, shopping cart, checkout system, and real-time order tracking. Fully type-safe codebase from frontend to backend using TypeScript throughout the entire stack.',
+    tech: ['TypeScript', 'Next.js', 'Node.js', 'MongoDB'],
+    icon: <ShoppingCart className="w-6 h-6" />,
+    gradient: 'from-orange-500 to-yellow-400',
+    features: ['Product Filtering', 'Order Tracking', 'Type-safe Stack', 'Full Checkout'],
+    color: 'orange',
+  },
+];
 
 const Projects: React.FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+      transition: { delayChildren: 0.2, staggerChildren: 0.15 },
+    },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
+    hidden: { y: 30, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
-  const projects = [
-    {
-      title: "MERN Todo Application",
-      description: "Full-stack todo application built with MERN stack featuring user authentication, task management, and real-time updates.",
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-      github: "https://github.com/Abu-ellil/mern-project-todo",
-      demo: "https://mern-project-todo-kalbonyan.vercel.app/login",
-      image: "https://user-images.githubusercontent.com/94858304/250264715-31cbb966-2312-4e9d-b5ec-c5ab299070af.png",
-      featured: true
-    },
-    {
-      title: "Social Media App",
-      description: "Complete social media platform with user profiles, posts, likes, comments, and real-time interactions built with MERN stack.",
-      icon: <Users className="w-6 h-6" />,
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
-      github: "https://github.com/Abu-ellil/social-app",
-      demo: "https://social-app-wahy.vercel.app/",
-      image: "https://res.cloudinary.com/masoft/image/upload/v1748557839/portifolio-assets/Screenshot_2025-05-29_at_6.25.58_PM_ah3bk9.png",
-      featured: true
-    },
-    {
-      title: "Your Car App",
-      description: "Modern car showcase application with beautiful UI, car listings, detailed views, and responsive design.",
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-      github: "https://github.com/Abu-ellil/your-car-app",
-      demo: "https://abu-ellil.github.io/your-car-app/",
-      image: "https://user-images.githubusercontent.com/94858304/246162094-f78167e8-9adf-4d74-8a89-897da00c9485.png",
-      featured: true
-    },
-    {
-      title: "20 Vanilla JS Projects",
-      description: "Collection of 20 interactive JavaScript projects showcasing DOM manipulation, APIs, local storage, and modern JS features.",
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ["JavaScript", "HTML5", "CSS3", "APIs", "Local Storage"],
-      github: "https://github.com/Abu-ellil/20-Vanilla-JS-PROJECTS",
-      demo: "https://abu-ellil.github.io/20-Vanilla-JS-PROJECTS/",
-      image: "https://user-images.githubusercontent.com/94858304/231672110-488dfbec-cf4c-4ea5-85d3-041ecc33a61a.png",
-      featured: false
-    },
-    {
-      title: "Kanban Board",
-      description: "Interactive Kanban board for project management with drag-and-drop functionality, task organization, and progress tracking.",
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ["JavaScript", "HTML5", "CSS3", "Drag & Drop API"],
-      github: "https://github.com/Abu-ellil/KanbanBoard",
-      demo: "https://abu-ellil.github.io/KanbanBoard/",
-      image: "https://user-images.githubusercontent.com/94858304/231673207-c6eebb31-9f75-4acb-8b42-330c810a3681.png",
-      featured: false
-    },
-    {
-      title: "Appie Landing Page",
-      description: "Modern, responsive landing page for mobile app with beautiful animations, smooth scrolling, and professional design.",
-      icon: <Smartphone className="w-6 h-6" />,
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-      github: "https://github.com/Abu-ellil/Appie",
-      demo: "https://abu-ellil.github.io/Appie/",
-      image: "https://user-images.githubusercontent.com/94858304/231668224-187f8e82-f36a-493a-abc6-12cedb097f35.png",
-      featured: false
-    },
-    {
-      title: "Jobs Application",
-      description: "Job search and application platform with user authentication, job listings, application tracking, and employer dashboard.",
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
-      github: "https://github.com/Abu-ellil/jops-app",
-      demo: "#",
-      image: "https://res.cloudinary.com/masoft/image/upload/v1748557838/portifolio-assets/Screenshot_2025-05-29_at_6.27.15_PM_up80zl.png",
-      featured: false
-    },
-    {
-      title: "React Native Quiz App",
-      description: "Mobile quiz application built with React Native featuring multiple categories, score tracking, and beautiful UI.",
-      icon: <Smartphone className="w-6 h-6" />,
-      technologies: ["React Native", "Expo", "JavaScript", "AsyncStorage"],
-      github: "https://github.com/Abu-ellil/react_native_quizapp",
-      demo: "#",
-      image: "https://res.cloudinary.com/masoft/image/upload/v1748557836/portifolio-assets/Screenshot_2025-05-29_at_6.27.32_PM_xeszg7.png",
-      featured: false
-    }
-  ];
-
-  const featuredProjects = projects.filter(project => project.featured);
-  const otherProjects = projects.filter(project => !project.featured);
-
   return (
-    <section id="projects" className="py-20 px-6 bg-gray-50 dark:bg-gray-900/50">
+    <section id="projects" className="section-padding bg-[#080808]">
       <motion.div
-        className="container mx-auto"
+        className="max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {/* Section Header */}
         <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <span className="text-sm font-medium text-blue-400 tracking-widest uppercase mb-4 block">
+            Portfolio
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold font-['Space_Grotesk'] mb-4">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills in full-stack development
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+            Production-grade applications I've built — from real-time delivery
+            platforms to AI-powered agriculture tools.
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mt-6" />
         </motion.div>
 
-        {/* Featured Projects */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {featuredProjects.map((project, index) => (
+        {/* Projects Grid */}
+        <div className="space-y-8">
+          {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="glass rounded-xl overflow-hidden hover:scale-105 transition-all duration-300"
+              className="card group"
               variants={itemVariants}
-              whileHover={{ y: -10 }}
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute top-4 right-4 flex space-x-2">
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-black/50 backdrop-blur-sm rounded-lg hover:bg-black/70 transition-colors text-white"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Github className="w-4 h-4" />
-                  </motion.a>
-                  {project.demo !== "#" && (
+              <div className="grid md:grid-cols-5 gap-0">
+                {/* Left: Project Info */}
+                <div className="md:col-span-3 p-8">
+                  {/* Header */}
+                  <div className="flex items-start gap-4 mb-4">
+                    <div
+                      className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center text-white shadow-lg`}
+                    >
+                      {project.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                      <p className="text-sm text-gray-500">{project.subtitle}</p>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-400 leading-relaxed mb-6">{project.description}</p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-badge">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Links */}
+                  <div className="flex gap-3">
                     <motion.a
-                      href={project.demo}
+                      href="https://github.com/Abu-ellil"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-black/50 backdrop-blur-sm rounded-lg hover:bg-black/70 transition-colors text-white"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                      whileHover={{ x: 4 }}
                     >
                       <ExternalLink className="w-4 h-4" />
+                      View Code
                     </motion.a>
-                  )}
-                </div>
-                <div className="absolute bottom-4 left-4">
-                  <div className="p-2 bg-white/20 backdrop-blur-sm rounded-lg text-white">
-                    {project.icon}
                   </div>
                 </div>
-              </div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
+                {/* Right: Features */}
+                <div className="md:col-span-2 p-8 bg-white/[0.02] border-l border-white/5">
+                  <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">
+                    Key Features
+                  </h4>
+                  <div className="space-y-3">
+                    {project.features.map((feature, fIndex) => (
+                      <motion.div
+                        key={fIndex}
+                        className="flex items-center gap-3"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: fIndex * 0.1 }}
+                      >
+                        <div
+                          className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.gradient} flex-shrink-0`}
+                        />
+                        <span className="text-gray-400 text-sm">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {/* Decorative element */}
+                  <div className="mt-8 pt-6 border-t border-white/5">
+                    <div className="flex items-center gap-2 text-gray-600 text-xs">
+                      <Cpu className="w-3 h-3" />
+                      <span>Production Application</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Other Projects */}
-        <motion.div variants={itemVariants}>
-          <h3 className="text-2xl font-semibold text-center mb-8">Other Notable Projects</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="glass p-6 rounded-xl hover:scale-105 transition-all duration-300"
-                whileHover={{ y: -5 }}
-              >
-                {/* Project Image */}
-                <div className="relative overflow-hidden mb-4 rounded-lg">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-32 object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute top-2 right-2 flex space-x-1">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 bg-black/50 backdrop-blur-sm rounded-lg hover:bg-black/70 transition-colors text-white"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <Github className="w-3 h-3" />
-                    </motion.a>
-                    {project.demo !== "#" && (
-                      <motion.a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 bg-black/50 backdrop-blur-sm rounded-lg hover:bg-black/70 transition-colors text-white"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        <ExternalLink className="w-3 h-3" />
-                      </motion.a>
-                    )}
-                  </div>
-                  <div className="absolute bottom-2 left-2">
-                    <div className="p-1.5 bg-white/20 backdrop-blur-sm rounded text-white">
-                      {project.icon}
-                    </div>
-                  </div>
-                </div>
-
-                <h4 className="text-lg font-semibold mb-2">{project.title}</h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-1">
-                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 text-gray-500 text-xs">
-                      +{project.technologies.length - 3} more
-                    </span>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );

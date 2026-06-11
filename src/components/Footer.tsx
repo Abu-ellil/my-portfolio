@@ -1,58 +1,44 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Heart, ArrowUp } from 'lucide-react';
-import { DiscordIcon, InstagramIcon, TwitterIcon, YouTubeIcon } from './SocialIcons';
+import { Github, Linkedin, Globe, Heart, ArrowUp, MessageCircle, Code2 } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
-      name: "GitHub",
-      icon: <Github className="w-5 h-5" />,
-      url: "https://github.com/Abu-ellil",
-      color: "hover:text-gray-700 dark:hover:text-gray-300"
+      name: 'GitHub',
+      icon: <Github className="w-4 h-4" />,
+      url: 'https://github.com/Abu-ellil',
+      hover: 'hover:text-white hover:border-gray-500/30',
     },
     {
-      name: "LinkedIn",
-      icon: <Linkedin className="w-5 h-5" />,
-      url: "https://linkedin.com/in/abu-ellil-806619254",
-      color: "hover:text-blue-600"
+      name: 'LinkedIn',
+      icon: <Linkedin className="w-4 h-4" />,
+      url: 'https://www.linkedin.com/in/abu-ellil/',
+      hover: 'hover:text-blue-400 hover:border-blue-500/30',
     },
     {
-      name: "Discord",
-      icon: <DiscordIcon className="w-5 h-5" />,
-      url: "https://discord.gg/sSfMCsz4",
-      color: "hover:text-indigo-500"
+      name: 'Website',
+      icon: <Globe className="w-4 h-4" />,
+      url: 'https://aboellil.dev',
+      hover: 'hover:text-cyan-400 hover:border-cyan-500/30',
     },
     {
-      name: "Instagram",
-      icon: <InstagramIcon className="w-5 h-5" />,
-      url: "https://instagram.com/mahmoud.aboellil",
-      color: "hover:text-pink-500"
+      name: 'Mostaql',
+      icon: <MessageCircle className="w-4 h-4" />,
+      url: 'https://mostaql.com/u/AbuEllil',
+      hover: 'hover:text-emerald-400 hover:border-emerald-500/30',
     },
-    {
-      name: "Twitter",
-      icon: <TwitterIcon className="w-5 h-5" />,
-      url: "https://twitter.com/MahmoudAboelli3",
-      color: "hover:text-blue-400"
-    },
-    {
-      name: "YouTube",
-      icon: <YouTubeIcon className="w-5 h-5" />,
-      url: "https://youtube.com/channel/UCMYVcvtt0Cs3lYpKGcIO-4g",
-      color: "hover:text-red-500"
-    },
-
   ];
 
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" }
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const scrollToTop = () => {
@@ -67,40 +53,45 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12 px-6 relative">
+    <footer className="bg-[#060606] border-t border-white/5 relative">
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+        className="absolute -top-5 left-1/2 -translate-x-1/2 p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-shadow"
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.9 }}
       >
-        <ArrowUp className="w-6 h-6" />
+        <ArrowUp className="w-5 h-5 text-white" />
       </motion.button>
 
-      <div className="container mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-bold gradient-text mb-4">
-              Mahmoud Abuellil
-            </h3>
-            <p className="text-gray-400 mb-4 leading-relaxed">
-              MERN Stack & React Native Developer passionate about creating
-              exceptional digital experiences that solve real-world problems.
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                <Code2 className="w-4 h-4 text-white" />
+              </div>
+              <span className="text-lg font-bold gradient-text font-['Space_Grotesk']">
+                Mahmoud Abuellil
+              </span>
+            </div>
+            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+              Full-Stack Engineer specializing in MERN Stack and React Native.
+              Building scalable, production-grade applications that solve real-world problems.
             </p>
-            <div className="grid grid-cols-4 gap-3 max-w-xs">
+            <div className="flex gap-2">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-2 bg-gray-800 rounded-lg transition-all duration-300 ${social.color} flex items-center justify-center`}
+                  className={`w-9 h-9 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center text-gray-500 ${social.hover} transition-all duration-300`}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   title={social.name}
@@ -117,98 +108,80 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <motion.button
+                  <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                    whileHover={{ x: 5 }}
+                    className="text-gray-500 hover:text-white transition-colors duration-200 text-sm"
                   >
                     {link.name}
-                  </motion.button>
+                  </button>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
-            <div className="space-y-2 text-gray-400">
-              <p>📧 mr.abuellil@gmail.com</p>
-              <p>📱 +20 123 456 7890</p>
+            <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">
+              Get In Touch
+            </h4>
+            <div className="space-y-2 text-sm text-gray-500">
+              <p>
+                <a href="mailto:mr.abuellil@gmail.com" className="hover:text-white transition-colors">
+                  📧 mr.abuellil@gmail.com
+                </a>
+              </p>
+              <p>
+                <a href="https://wa.me/201221089249" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  📱 +20 122 108 9249
+                </a>
+              </p>
               <p>📍 Cairo, Egypt</p>
             </div>
 
-            <div className="mt-4 p-4 bg-gray-800 rounded-lg">
-              <div className="flex items-center space-x-2 mb-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-green-400 text-sm font-medium">
-                  Available for work
-                </span>
+            <div className="mt-4 p-3 bg-white/[0.02] border border-white/5 rounded-lg">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                <span className="text-emerald-400 text-xs font-medium">Available for work</span>
               </div>
-              <p className="text-gray-400 text-sm">
-                Open to freelance projects and full-time opportunities
+              <p className="text-gray-600 text-xs">
+                Open to freelance & full-time opportunities
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Copyright */}
-            <motion.div
-              className="text-gray-400 text-sm flex items-center space-x-1"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <span>© {currentYear} Mahmoud Abuellil. Made with</span>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/5 pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="text-gray-600 text-sm flex items-center gap-1">
+              <span>© {currentYear} Mahmoud Abuellil. Built with</span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}
               >
-                <Heart className="w-4 h-4 text-red-500 fill-current" />
+                <Heart className="w-3.5 h-3.5 text-red-500 fill-current" />
               </motion.div>
-              <span>and React</span>
-            </motion.div>
+              <span>using React & TypeScript</span>
+            </div>
 
-            {/* Tech Stack */}
-            <motion.div
-              className="flex items-center space-x-4 text-gray-400 text-sm"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <span>Built with:</span>
-              <div className="flex items-center space-x-2">
-                <span className="px-2 py-1 bg-gray-800 rounded text-xs">React</span>
-                <span className="px-2 py-1 bg-gray-800 rounded text-xs">TypeScript</span>
-                <span className="px-2 py-1 bg-gray-800 rounded text-xs">Tailwind</span>
-                <span className="px-2 py-1 bg-gray-800 rounded text-xs">Framer Motion</span>
-              </div>
-            </motion.div>
+            <div className="flex items-center gap-2 text-xs text-gray-600">
+              <span className="px-2 py-1 bg-white/[0.03] border border-white/5 rounded">React</span>
+              <span className="px-2 py-1 bg-white/[0.03] border border-white/5 rounded">TypeScript</span>
+              <span className="px-2 py-1 bg-white/[0.03] border border-white/5 rounded">Tailwind</span>
+              <span className="px-2 py-1 bg-white/[0.03] border border-white/5 rounded">Framer Motion</span>
+            </div>
           </div>
         </div>
-
-        {/* Fun Quote */}
-        <motion.div
-          className="text-center mt-8 pt-8 border-t border-gray-800"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <p className="text-gray-400 italic">
-            "Code is like humor. When you have to explain it, it's bad." - Cory House
-          </p>
-        </motion.div>
       </div>
     </footer>
   );

@@ -1,168 +1,163 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import {
+  Globe,
+  Database,
+  Monitor,
+  Layers,
+  Code2,
+  Smartphone,
+  Server,
+  GitBranch,
+  Box,
+  Palette,
+  Shield,
+  Radio,
+  Cpu,
+  FileCode2,
+  Workflow,
+  Cloud,
+  Container,
+  Terminal,
+  PenTool,
+  Layout,
+  Zap,
+} from 'lucide-react';
+
+interface TechItem {
+  name: string;
+  icon: React.ReactNode;
+  color: string;
+}
+
+interface TechCategory {
+  title: string;
+  icon: React.ReactNode;
+  items: TechItem[];
+}
+
+const techCategories: TechCategory[] = [
+  {
+    title: 'Frontend',
+    icon: <Layers className="w-5 h-5" />,
+    items: [
+      { name: 'React.js', icon: <Code2 className="w-5 h-5" />, color: '#61DAFB' },
+      { name: 'Next.js', icon: <Globe className="w-5 h-5" />, color: '#ffffff' },
+      { name: 'React Native', icon: <Smartphone className="w-5 h-5" />, color: '#61DAFB' },
+      { name: 'TypeScript', icon: <FileCode2 className="w-5 h-5" />, color: '#3178C6' },
+      { name: 'JavaScript', icon: <Zap className="w-5 h-5" />, color: '#F7DF1E' },
+      { name: 'Tailwind CSS', icon: <Palette className="w-5 h-5" />, color: '#06B6D4' },
+      { name: 'NativeWind', icon: <Palette className="w-5 h-5" />, color: '#06B6D4' },
+      { name: 'Redux Toolkit', icon: <Workflow className="w-5 h-5" />, color: '#764ABC' },
+      { name: 'shadcn/ui', icon: <Layout className="w-5 h-5" />, color: '#ffffff' },
+    ],
+  },
+  {
+    title: 'Backend',
+    icon: <Server className="w-5 h-5" />,
+    items: [
+      { name: 'Node.js', icon: <Server className="w-5 h-5" />, color: '#339933' },
+      { name: 'Express.js', icon: <Cpu className="w-5 h-5" />, color: '#ffffff' },
+      { name: 'REST APIs', icon: <Globe className="w-5 h-5" />, color: '#FF6C37' },
+      { name: 'GraphQL', icon: <Box className="w-5 h-5" />, color: '#E10098' },
+      { name: 'Socket.io', icon: <Radio className="w-5 h-5" />, color: '#010101' },
+      { name: 'JWT / OAuth', icon: <Shield className="w-5 h-5" />, color: '#FB015B' },
+    ],
+  },
+  {
+    title: 'Database & Cloud',
+    icon: <Database className="w-5 h-5" />,
+    items: [
+      { name: 'MongoDB', icon: <Database className="w-5 h-5" />, color: '#47A248' },
+      { name: 'Firebase', icon: <Cloud className="w-5 h-5" />, color: '#FFCA28' },
+      { name: 'SQL', icon: <Database className="w-5 h-5" />, color: '#00758F' },
+      { name: 'Vercel', icon: <Cloud className="w-5 h-5" />, color: '#ffffff' },
+    ],
+  },
+  {
+    title: 'Desktop & Tools',
+    icon: <Monitor className="w-5 h-5" />,
+    items: [
+      { name: 'Electron', icon: <Monitor className="w-5 h-5" />, color: '#47848F' },
+      { name: 'SQLite', icon: <Database className="w-5 h-5" />, color: '#003B57' },
+      { name: 'Docker', icon: <Container className="w-5 h-5" />, color: '#2496ED' },
+      { name: 'Git', icon: <GitBranch className="w-5 h-5" />, color: '#F05032' },
+      { name: 'Postman', icon: <Terminal className="w-5 h-5" />, color: '#FF6C37' },
+      { name: 'Figma', icon: <PenTool className="w-5 h-5" />, color: '#F24E1E' },
+    ],
+  },
+];
 
 const TechStack: React.FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
+      transition: { delayChildren: 0.2, staggerChildren: 0.15 },
+    },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
+    hidden: { y: 30, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
-  const technologies = [
-    {
-      category: "Frontend",
-      skills: [
-        { name: "React", level: 95, color: "from-blue-400 to-blue-600" },
-        { name: "React Native", level: 90, color: "from-cyan-400 to-cyan-600" },
-        { name: "TypeScript", level: 85, color: "from-blue-500 to-blue-700" },
-        { name: "JavaScript", level: 95, color: "from-yellow-400 to-yellow-600" },
-        { name: "HTML5/CSS3", level: 90, color: "from-orange-400 to-orange-600" },
-        { name: "Tailwind CSS", level: 88, color: "from-teal-400 to-teal-600" }
-      ]
-    },
-    {
-      category: "Backend",
-      skills: [
-        { name: "Node.js", level: 90, color: "from-green-400 to-green-600" },
-        { name: "Express.js", level: 88, color: "from-gray-400 to-gray-600" },
-        { name: "MongoDB", level: 85, color: "from-green-500 to-green-700" },
-        { name: "PostgreSQL", level: 80, color: "from-blue-500 to-blue-700" },
-        { name: "Firebase", level: 85, color: "from-yellow-500 to-orange-500" },
-        { name: "REST APIs", level: 92, color: "from-purple-400 to-purple-600" }
-      ]
-    },
-    {
-      category: "Tools & Others",
-      skills: [
-        { name: "Git", level: 90, color: "from-red-400 to-red-600" },
-        { name: "Redux", level: 85, color: "from-purple-500 to-purple-700" },
-        { name: "Socket.io", level: 80, color: "from-gray-500 to-gray-700" },
-        { name: "Jest", level: 75, color: "from-red-500 to-red-700" },
-        { name: "Docker", level: 70, color: "from-blue-400 to-blue-600" },
-        { name: "AWS", level: 65, color: "from-orange-400 to-orange-600" }
-      ]
-    }
-  ];
-
-  const techIcons = [
-    { name: "React", icon: "⚛️" },
-    { name: "Node.js", icon: "🟢" },
-    { name: "MongoDB", icon: "🍃" },
-    { name: "TypeScript", icon: "📘" },
-    { name: "Firebase", icon: "🔥" },
-    { name: "Redux", icon: "🔄" },
-    { name: "Tailwind", icon: "💨" },
-    { name: "Git", icon: "📝" },
-    { name: "JavaScript", icon: "💛" },
-    { name: "Express", icon: "🚀" },
-    { name: "PostgreSQL", icon: "🐘" },
-    { name: "Docker", icon: "🐳" }
-  ];
-
   return (
-    <section id="skills" className="py-20 px-6">
+    <section id="skills" className="section-padding">
       <motion.div
-        className="container mx-auto"
+        className="max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {/* Section Header */}
         <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <span className="text-sm font-medium text-blue-400 tracking-widest uppercase mb-4 block">
+            Skills
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold font-['Space_Grotesk'] mb-4">
             Tech <span className="gradient-text">Stack</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Technologies and tools I use to bring ideas to life
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+            The technologies and tools I use to build scalable, production-grade applications.
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mt-6" />
         </motion.div>
 
-        {/* Floating Tech Icons */}
-        <motion.div 
-          className="flex flex-wrap justify-center gap-4 mb-16"
-          variants={itemVariants}
-        >
-          {techIcons.map((tech, index) => (
+        {/* Tech Categories */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {techCategories.map((category, catIndex) => (
             <motion.div
-              key={index}
-              className="glass p-4 rounded-xl hover:scale-110 transition-all duration-300"
-              whileHover={{ y: -10, rotate: 5 }}
-              animate={{ 
-                y: [0, -10, 0],
-                rotate: [0, 5, 0]
-              }}
-              transition={{ 
-                duration: 3,
-                delay: index * 0.2,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-            >
-              <div className="text-2xl mb-2">{tech.icon}</div>
-              <div className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                {tech.name}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Skills Categories */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {technologies.map((category, categoryIndex) => (
-            <motion.div
-              key={categoryIndex}
-              className="glass p-8 rounded-xl"
+              key={catIndex}
+              className="card p-8"
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
             >
-              <h3 className="text-2xl font-semibold mb-6 text-center gradient-text">
-                {category.category}
-              </h3>
-              
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
+              {/* Category Header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/10 flex items-center justify-center text-blue-400">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+              </div>
+
+              {/* Tech Items Grid */}
+              <div className="grid grid-cols-3 gap-3">
+                {category.items.map((tech, techIndex) => (
                   <motion.div
-                    key={skillIndex}
-                    className="space-y-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: skillIndex * 0.1 }}
+                    key={techIndex}
+                    className="flex flex-col items-center gap-2 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.05] transition-all duration-300 group"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: techIndex * 0.05 }}
                   >
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700 dark:text-gray-300">
-                        {skill.name}
-                      </span>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <motion.div
-                        className={`h-2 rounded-full bg-gradient-to-r ${skill.color}`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                      />
-                    </div>
+                    <span style={{ color: tech.color }} className="transition-transform duration-300 group-hover:scale-110">
+                      {tech.icon}
+                    </span>
+                    <span className="text-xs text-gray-500 group-hover:text-gray-300 transition-colors text-center leading-tight">
+                      {tech.name}
+                    </span>
                   </motion.div>
                 ))}
               </div>
@@ -170,20 +165,27 @@ const TechStack: React.FC = () => {
           ))}
         </div>
 
-        {/* Additional Info */}
-        <motion.div 
-          className="text-center mt-16"
+        {/* Additional Skills Bar */}
+        <motion.div
+          className="mt-12 card p-6"
           variants={itemVariants}
         >
-          <div className="glass p-8 rounded-xl max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-4 gradient-text">
-              Always Learning
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              Technology evolves rapidly, and I'm committed to staying current with the latest 
-              trends and best practices. I regularly explore new frameworks, attend tech conferences, 
-              and contribute to open-source projects to continuously improve my skills.
-            </p>
+          <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4 text-center">
+            Also Experienced With
+          </h4>
+          <div className="flex flex-wrap justify-center gap-2">
+            {[
+              'CI/CD', 'Payment Gateways', 'Maps Integration', 'Push Notifications',
+              'OpenAI API', 'Jira', 'Trello', 'Slack', 'Context API', 'Deno.js',
+            ].map((skill, index) => (
+              <motion.span
+                key={index}
+                className="px-3 py-1.5 text-xs font-medium text-gray-500 bg-white/[0.03] border border-white/5 rounded-full hover:text-gray-300 hover:border-white/10 transition-all duration-200"
+                whileHover={{ scale: 1.05 }}
+              >
+                {skill}
+              </motion.span>
+            ))}
           </div>
         </motion.div>
       </motion.div>
