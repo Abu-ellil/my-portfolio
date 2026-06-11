@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';

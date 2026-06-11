@@ -5,14 +5,7 @@ import {
   Leaf,
   Scissors,
   ShoppingCart,
-  MapPin,
-  MessageSquare,
-  Bell,
-  Wifi,
   Cpu,
-  Globe,
-  Smartphone,
-  Monitor,
   ExternalLink,
 } from 'lucide-react';
 
