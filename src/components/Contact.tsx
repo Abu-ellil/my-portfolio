@@ -51,9 +51,9 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-cyan-400 tracking-widest uppercase">Contact</span>
+          <span className="text-sm font-medium text-amber-400 tracking-widest uppercase">Contact</span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold font-['Space_Grotesk'] text-white">
-            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Work Together</span>
+            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-rose-400">Work Together</span>
           </h2>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how I can help bring your ideas to life.
@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
             {contactCards.map((card) => {
               const Inner = (
                 <>
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500/20 to-rose-500/20 border border-white/10 flex items-center justify-center text-amber-300 group-hover:scale-110 transition-transform duration-300 shrink-0">
                     {card.icon}
                   </div>
                   <div>
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
                   href={card.href}
                   target={card.href.startsWith('http') ? '_blank' : undefined}
                   rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="group flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-400/40 hover:bg-white/[0.05] transition-all duration-300"
+                  className="group flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-400/40 hover:bg-white/[0.05] transition-all duration-300"
                 >
                   {Inner}
                 </a>
@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.name}
-                    className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-300 hover:border-cyan-400/40 hover:-translate-y-1 transition-all duration-300"
+                    className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-amber-300 hover:border-amber-400/40 hover:-translate-y-1 transition-all duration-300"
                   >
                     {s.icon}
                   </a>
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Jane Smith"
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400/60 focus:bg-white/[0.07] transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-amber-400/60 focus:bg-white/[0.07] transition-all duration-300"
                 />
               </div>
               <div>
@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="jane@company.com"
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400/60 focus:bg-white/[0.07] transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-amber-400/60 focus:bg-white/[0.07] transition-all duration-300"
                 />
               </div>
             </div>
@@ -168,13 +168,13 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Tell me about your project..."
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400/60 focus:bg-white/[0.07] transition-all duration-300 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-amber-400/60 focus:bg-white/[0.07] transition-all duration-300 resize-none"
               />
             </div>
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 disabled:opacity-60 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-white bg-gradient-to-r from-orange-500 to-rose-600 hover:from-orange-400 hover:to-rose-500 disabled:opacity-60 transition-all duration-300 shadow-lg shadow-orange-500/25 hover:-translate-y-0.5"
             >
               {status === 'sending' ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

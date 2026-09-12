@@ -16,15 +16,15 @@ const Experience: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-cyan-400 tracking-widest uppercase">Experience</span>
+          <span className="text-sm font-medium text-amber-400 tracking-widest uppercase">Experience</span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold font-['Space_Grotesk'] text-white">
-            Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Journey</span>
+            Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-rose-400">Journey</span>
           </h2>
         </motion.div>
 
         <div className="relative">
           {/* vertical line */}
-          <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-purple-500/30 to-transparent" />
+          <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-amber-500/50 via-orange-500/30 to-transparent" />
 
           {EXPERIENCE.map((exp, i) => {
             const Icon = icons[i % icons.length];
@@ -42,18 +42,18 @@ const Experience: React.FC = () => {
                 <div
                   className={`absolute top-1 left-0 md:left-auto ${
                     left ? 'md:-right-[19px]' : 'md:-left-[19px]'
-                  } w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/25 to-purple-500/25 border border-white/10 backdrop-blur flex items-center justify-center text-cyan-300 z-10`}
+                  } w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/25 to-rose-500/25 border border-white/10 backdrop-blur flex items-center justify-center text-amber-300 z-10`}
                 >
                   <Icon className="w-5 h-5" />
                 </div>
 
                 <div
-                  className={`w-full p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300 group ${
+                  className={`w-full p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-400/25 hover:bg-white/[0.05] transition-all duration-300 group ${
                     left ? 'md:text-right' : ''
                   }`}
                 >
-                  <span className="text-xs font-medium text-cyan-400/90 tracking-wide">{exp.period}</span>
-                  <h3 className="mt-1 text-lg font-semibold text-white group-hover:text-cyan-200 transition-colors">
+                  <span className="text-xs font-medium text-amber-400/90 tracking-wide">{exp.period}</span>
+                  <h3 className="mt-1 text-lg font-semibold text-white group-hover:text-amber-200 transition-colors">
                     {exp.title}
                   </h3>
                   <p className="text-sm text-gray-500 mb-3">
@@ -63,7 +63,7 @@ const Experience: React.FC = () => {
                         href={exp.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-0.5 ml-2 text-blue-400/80 hover:text-blue-300"
+                        className="inline-flex items-center gap-0.5 ml-2 text-orange-400/80 hover:text-orange-300"
                       >
                         site <ChevronRight className="w-3 h-3" />
                       </a>

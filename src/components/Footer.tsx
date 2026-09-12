@@ -16,12 +16,12 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           <div>
             <a href="#home" className="flex items-center gap-2 mb-4">
-              <span className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+              <span className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-rose-600 flex items-center justify-center">
                 <Code2 className="w-5 h-5 text-white" />
               </span>
               <span className="font-semibold font-['Space_Grotesk'] text-white">
                 {IDENTITY.name.split(' ')[0]}
-                <span className="text-cyan-400">.dev</span>
+                <span className="text-amber-400">.dev</span>
               </span>
             </a>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             <ul className="grid grid-cols-2 gap-2">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-gray-500 hover:text-cyan-300 transition-colors">
+                  <a href={link.href} className="text-sm text-gray-500 hover:text-amber-300 transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-medium mb-4">Get In Touch</h4>
             <a
               href={`mailto:${IDENTITY.email}`}
-              className="flex items-center gap-2 text-sm text-gray-500 hover:text-cyan-300 transition-colors mb-2"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-amber-300 transition-colors mb-2"
             >
               <Mail className="w-4 h-4" /> {IDENTITY.email}
             </a>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-cyan-300 hover:border-cyan-400/40 transition-all duration-200"
+                  className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-amber-300 hover:border-amber-400/40 transition-all duration-200"
                 >
                   {s.name}
                 </a>

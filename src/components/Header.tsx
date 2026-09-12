@@ -24,12 +24,12 @@ const Header: React.FC = () => {
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2 group">
-          <span className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-600/30 group-hover:shadow-purple-500/40 transition-shadow">
+          <span className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-rose-600 flex items-center justify-center shadow-lg shadow-amber-500/30 group-hover:shadow-rose-500/40 transition-shadow">
             <Code2 className="w-5 h-5 text-white" />
           </span>
           <span className="font-semibold font-['Space_Grotesk'] text-white">
             {IDENTITY.name.split(' ')[0]}
-            <span className="text-cyan-400">.dev</span>
+            <span className="text-amber-400">.dev</span>
           </span>
         </a>
 
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
           <a
             href={IDENTITY.cv}
             download="Mahmoud_Abuellil_FullStack_Resume.pdf"
-            className="ml-3 px-4 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500 transition-all duration-200"
+            className="ml-3 px-4 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-orange-500 to-rose-600 text-white hover:from-orange-400 hover:to-rose-500 transition-all duration-200"
           >
             Resume
           </a>

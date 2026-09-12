@@ -11,10 +11,10 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const gradients = [
-  'from-blue-500/20 to-cyan-500/10 text-blue-300',
-  'from-emerald-500/20 to-green-500/10 text-emerald-300',
-  'from-purple-500/20 to-fuchsia-500/10 text-purple-300',
-  'from-orange-500/20 to-amber-500/10 text-orange-300',
+  'from-amber-500/20 to-orange-500/10 text-amber-300',
+  'from-orange-500/20 to-rose-500/10 text-orange-300',
+  'from-rose-500/20 to-amber-500/10 text-rose-300',
+  'from-yellow-500/20 to-orange-500/10 text-yellow-200',
 ];
 
 const Projects: React.FC = () => {
@@ -28,9 +28,9 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-cyan-400 tracking-widest uppercase">Projects</span>
+          <span className="text-sm font-medium text-amber-400 tracking-widest uppercase">Projects</span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold font-['Space_Grotesk'] text-white">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Work</span>
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-rose-400">Work</span>
           </h2>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
             Production-grade applications — from real-time delivery platforms to AI-powered
@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ delay: (i % 2) * 0.12, duration: 0.55 }}
               whileHover={{ y: -8 }}
-              className="group relative rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/20 overflow-hidden transition-all duration-300 flex flex-col"
+              className="group relative rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-400/25 overflow-hidden transition-all duration-300 flex flex-col"
             >
               {/* top accent */}
               <div className={`h-1 w-full bg-gradient-to-r ${gradients[i % 4].split(' ').slice(0, 2).join(' ')}`} />
@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${project.title} on GitHub`}
-                    className="text-gray-600 hover:text-cyan-300 transition-colors p-2"
+                    className="text-gray-600 hover:text-amber-300 transition-colors p-2"
                   >
                     <Github className="w-5 h-5" />
                   </a>
@@ -73,7 +73,7 @@ const Projects: React.FC = () => {
                 <h3 className="text-xl font-semibold font-['Space_Grotesk'] text-white mb-1">
                   {project.title}
                 </h3>
-                <p className="text-sm text-cyan-400/80 mb-4">{project.subtitle}</p>
+                <p className="text-sm text-amber-400/80 mb-4">{project.subtitle}</p>
 
                 <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">
                   {project.description}
@@ -114,7 +114,7 @@ const Projects: React.FC = () => {
             href="https://github.com/Abu-ellil"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-300 transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-amber-300 transition-colors font-medium"
           >
             More on GitHub
             <ExternalLink className="w-4 h-4" />

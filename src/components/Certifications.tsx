@@ -20,9 +20,9 @@ const Certifications: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <span className="text-sm font-medium text-cyan-400 tracking-widest uppercase">Learning</span>
+          <span className="text-sm font-medium text-amber-400 tracking-widest uppercase">Learning</span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold font-['Space_Grotesk'] text-white">
-            Certifications & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Growth</span>
+            Certifications & <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-rose-400">Growth</span>
           </h2>
           <p className="mt-4 text-gray-500">Continuous learning and professional development.</p>
         </motion.div>
@@ -36,7 +36,7 @@ const Certifications: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: (i % 3) * 0.08, duration: 0.5 }}
               whileHover={{ y: -5 }}
-              className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-400/40 transition-all duration-300"
+              className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-rose-400/40 transition-all duration-300"
             >
               <div className="flex items-start gap-3">
                 <span className="text-xl mt-0.5">🏅</span>
@@ -61,7 +61,7 @@ const Certifications: React.FC = () => {
               key={b.text}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-400"
             >
-              <span className="text-cyan-400">{b.icon}</span>
+              <span className="text-amber-400">{b.icon}</span>
               {b.text}
             </span>
           ))}
