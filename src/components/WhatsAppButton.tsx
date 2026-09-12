@@ -1,25 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
+import { IDENTITY } from '../data';
 
 const WhatsAppButton: React.FC = () => {
   return (
     <motion.a
-      href="https://wa.me/201221089249"
+      href={IDENTITY.whatsapp}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:bg-[#20bd5a] transition-all duration-300"
+      aria-label="Chat on WhatsApp"
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 1.2, type: 'spring', stiffness: 200 }}
       whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 2, type: 'spring', stiffness: 200 }}
-      title="Chat on WhatsApp"
+      whileTap={{ scale: 0.95 }}
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center text-white shadow-lg shadow-emerald-600/40 hover:shadow-emerald-500/60 transition-shadow"
     >
-      <MessageCircle className="w-6 h-6 fill-white" />
-      
-      {/* Pulse ring */}
-      <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
+      <MessageCircle className="w-7 h-7" />
+      <span className="absolute inset-0 rounded-full bg-emerald-400/40 animate-ping opacity-20" />
     </motion.a>
   );
 };

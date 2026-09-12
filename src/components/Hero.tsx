@@ -1,182 +1,112 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Mail, Github, Linkedin, ChevronDown, Globe, MessageCircle } from 'lucide-react';
+import Scene3D from './Scene3D';
+import { IDENTITY, STATS } from '../data';
+import { Github, Linkedin, Download, ArrowRight, MessageCircle, Youtube } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.15,
-      },
-    },
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  };
-
-  const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, href: 'https://github.com/Abu-ellil', label: 'GitHub', hover: 'hover:text-white' },
-    { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/abu-ellil/', label: 'LinkedIn', hover: 'hover:text-blue-400' },
-    { icon: <Globe className="w-5 h-5" />, href: 'https://aboellil.dev', label: 'Website', hover: 'hover:text-cyan-400' },
-    { icon: <MessageCircle className="w-5 h-5" />, href: 'https://mostaql.com/u/AbuEllil', label: 'Mostaql', hover: 'hover:text-emerald-400' },
-  ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 z-0">
-        {/* Gradient Spheres */}
-        <div className="absolute top-[-200px] right-[-200px] w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] animate-[float_20s_ease-in-out_infinite]" />
-        <div className="absolute bottom-[-150px] left-[-150px] w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] animate-[float_20s_ease-in-out_infinite_5s]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] animate-[float_20s_ease-in-out_infinite_10s]" />
-        
-        {/* Grid Overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)',
-            backgroundSize: '100px 100px',
-          }}
-        />
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      <Scene3D />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050508_75%)] pointer-events-none" />
 
-      <motion.div
-        className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-24 pb-16"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Status Badge */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm text-blue-400">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-            Available for new opportunities
-          </span>
-        </motion.div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/5 backdrop-blur-sm mb-8">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-sm text-gray-300">{IDENTITY.available}</span>
+          </div>
 
-        {/* Profile Image */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <div className="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-[3px] shadow-xl shadow-blue-500/20">
-            <div className="w-full h-full rounded-full bg-[#111] flex items-center justify-center overflow-hidden">
-              <img
-                src="https://avatars.githubusercontent.com/u/94858304?v=4"
-                alt="Mahmoud Abuellil"
-                className="w-full h-full rounded-full object-cover"
-              />
-            </div>
+          <h1 className="text-5xl md:text-7xl font-bold font-['Space_Grotesk'] leading-[1.05] mb-6">
+            <span className="text-white">{IDENTITY.name}</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 pb-2">
+              {IDENTITY.title}
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed">
+            Building <span className="text-cyan-300">production-grade</span> web, mobile & desktop
+            applications with <span className="text-blue-300">MERN</span>,{' '}
+            <span className="text-purple-300">React Native</span> and{' '}
+            <span className="text-cyan-300">Next.js</span> — from Cairo to the world.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-14">
+            <button
+              onClick={() => scrollTo('#projects')}
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40 hover:-translate-y-0.5"
+            >
+              View My Work
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <a
+              href={IDENTITY.cv}
+              download="Mahmoud_Abuellil_FullStack_Resume.pdf"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-gray-200 border border-gray-700 hover:border-cyan-400/50 hover:text-cyan-300 hover:bg-cyan-400/5 transition-all duration-300 backdrop-blur-sm"
+            >
+              <Download className="w-4 h-4" />
+              Download CV
+            </a>
+          </div>
+
+          <div className="flex items-center gap-5 mb-14">
+            {[
+              { icon: <Github className="w-5 h-5" />, href: IDENTITY.github, label: 'GitHub' },
+              { icon: <Linkedin className="w-5 h-5" />, href: IDENTITY.linkedin, label: 'LinkedIn' },
+              { icon: <MessageCircle className="w-5 h-5" />, href: IDENTITY.mostaql, label: 'Mostaql' },
+              { icon: <Youtube className="w-5 h-5" />, href: IDENTITY.youtube, label: 'YouTube' },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="text-gray-500 hover:text-cyan-300 transition-all duration-300 hover:-translate-y-1"
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl">
+            {STATS.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + i * 0.1 }}
+              >
+                <div className="text-3xl font-bold font-['Space_Grotesk'] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
+      </div>
 
-        {/* Name */}
-        <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 font-['Space_Grotesk'] leading-tight"
-          variants={itemVariants}
-        >
-          <span className="bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-            Mahmoud
-          </span>
-          <br />
-          <span className="gradient-text">Abuellil</span>
-        </motion.h1>
-
-        {/* Arabic Name */}
-        <motion.p variants={itemVariants} className="text-lg text-gray-500 mb-4 font-arabic" dir="rtl">
-          محمود أبو عليل
-        </motion.p>
-
-        {/* Title */}
-        <motion.h2
-          className="text-xl md:text-2xl text-gray-300 mb-6 font-medium"
-          variants={itemVariants}
-        >
-          Full-Stack Engineer{' '}
-          <span className="text-gray-500">|</span>{' '}
-          <span className="gradient-text">MERN & React Native</span>
-        </motion.h2>
-
-        {/* Description */}
-        <motion.p
-          className="text-gray-500 text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
-          variants={itemVariants}
-        >
-          Building production-grade web, mobile & desktop applications with
-          4+ years of experience crafting scalable, real-world solutions that
-          users love.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-          variants={itemVariants}
-        >
-          <motion.a
-            href="mailto:mr.abuellil@gmail.com"
-            className="btn-primary animate-pulse-glow flex items-center justify-center gap-2 text-base px-8 py-4"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <Mail className="w-5 h-5" />
-            Hire Me
-          </motion.a>
-
-          <motion.a
-            href="/MahmoudAboellilFullStack.pdf"
-            download="Mahmoud_Abuellil_FullStack_Resume.pdf"
-            className="btn-secondary flex items-center justify-center gap-2 text-base px-8 py-4"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <Download className="w-5 h-5" />
-            Download CV
-          </motion.a>
-        </motion.div>
-
-        {/* Social Links */}
-        <motion.div
-          className="flex justify-center gap-3"
-          variants={itemVariants}
-        >
-          {socialLinks.map((social) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`p-3 rounded-xl glass text-gray-400 ${social.hover} transition-all duration-300`}
-              whileHover={{ y: -4, scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              title={social.label}
-            >
-              {social.icon}
-            </motion.a>
-          ))}
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      <motion.button
+        onClick={() => scrollTo('#about')}
         animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ repeat: Infinity, duration: 1.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-gray-600 hover:text-cyan-300 transition-colors"
+        aria-label="Scroll down"
       >
-        <button
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          className="flex flex-col items-center gap-2 text-gray-600 hover:text-gray-400 transition-colors"
-        >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <ChevronDown className="w-5 h-5" />
-        </button>
-      </motion.div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </motion.button>
     </section>
   );
 };

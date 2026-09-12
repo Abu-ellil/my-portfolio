@@ -1,15 +1,15 @@
 # Portfolio Website for Mahmoud Abuellil
 
 ## Developer Profile
-- Name: Mahmoud Abuellil (محمود أبو عليل)
+- Name: Mahmoud Abualleil (محمود ابوالليل) — NEVER write "أبو عليل"
 - Title: Full-Stack Engineer | MERN & React Native
 - Experience: 4+ years
 - Location: Cairo, Egypt (UTC+2)
 - Languages: Arabic (Native), English (Professional)
-- Email: mr.abuellil@gmail.com
+- Email: aboellil.dev@gmail.com
 - GitHub: github.com/Abu-ellil
 - LinkedIn: linkedin.com/in/abu-ellil-806619254
-- Website: aboellil.dev
+- Website: https://mahmoud-abuellil.vercel.app
 - Available for: Remote Full-time, Freelance, Startups
 
 ## Tech Stack
