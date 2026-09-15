@@ -9,7 +9,7 @@
 - Email: aboellil.dev@gmail.com
 - GitHub: github.com/Abu-ellil
 - LinkedIn: linkedin.com/in/abu-ellil-806619254
-- Website: https://mahmoud-abuellil.vercel.app
+- Website: https://abuellil.is-a.dev
 - Available for: Remote Full-time, Freelance, Startups
 
 ## Tech Stack
