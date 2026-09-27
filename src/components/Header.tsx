@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Code2 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
 import { NAV_LINKS, IDENTITY } from '../data';
 
 const Header: React.FC = () => {
@@ -44,6 +45,16 @@ const Header: React.FC = () => {
             </a>
           ))}
           <a
+            href={IDENTITY.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="ml-3 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 hover:bg-emerald-500/25 hover:border-emerald-400/60 transition-all duration-200"
+          >
+            <FaWhatsapp className="w-4 h-4" />
+            WhatsApp
+          </a>
+          <a
             href={IDENTITY.cv}
             download="Mahmoud_Abuellil_FullStack_Resume.pdf"
             className="ml-3 px-4 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-orange-500 to-rose-600 text-white hover:from-orange-400 hover:to-rose-500 transition-all duration-200"
@@ -80,6 +91,16 @@ const Header: React.FC = () => {
                   {link.label}
                 </a>
               ))}
+              <a
+                href={IDENTITY.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 px-4 py-3 mt-2 text-emerald-300 bg-emerald-500/10 border border-emerald-400/30 rounded-lg hover:bg-emerald-500/20 transition-colors"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                Chat on WhatsApp
+              </a>
             </div>
           </motion.div>
         )}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Youtube, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Mail, MapPin, Send, Github, Linkedin, MessageCircle, Youtube, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
 import { IDENTITY } from '../data';
 
 const Contact: React.FC = () => {
@@ -30,12 +31,13 @@ const Contact: React.FC = () => {
 
   const contactCards = [
     { icon: <Mail className="w-5 h-5" />, label: 'Email', value: IDENTITY.email, href: `mailto:${IDENTITY.email}` },
-    { icon: <Phone className="w-5 h-5" />, label: 'WhatsApp', value: IDENTITY.phoneDisplay, href: IDENTITY.whatsapp },
+    { icon: <FaWhatsapp className="w-5 h-5" />, label: 'WhatsApp', value: IDENTITY.phoneDisplay, href: IDENTITY.whatsapp },
     { icon: <MapPin className="w-5 h-5" />, label: 'Location', value: IDENTITY.location, href: null },
   ];
 
   const socials = [
     { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: IDENTITY.github },
+    { name: 'WhatsApp', icon: <FaWhatsapp className="w-5 h-5" />, url: IDENTITY.whatsapp },
     { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: IDENTITY.linkedin },
     { name: 'Mostaql', icon: <MessageCircle className="w-5 h-5" />, url: IDENTITY.mostaql },
     { name: 'YouTube', icon: <Youtube className="w-5 h-5" />, url: IDENTITY.youtube },
@@ -183,6 +185,17 @@ const Contact: React.FC = () => {
               )}
               {status === 'sending' ? 'Opening mail…' : 'Send Message'}
             </button>
+            <p className="text-sm text-gray-500">
+              Prefer a faster reply?{' '}
+              <a
+                href={IDENTITY.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 transition-colors"
+              >
+                <FaWhatsapp className="w-4 h-4" /> Chat on WhatsApp
+              </a>
+            </p>
             {status === 'success' && (
               <p className="flex items-center gap-2 text-emerald-400 text-sm">
                 <CheckCircle className="w-4 h-4" /> Your mail app opened with the message pre-filled — just hit send.

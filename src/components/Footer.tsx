@@ -1,8 +1,10 @@
 import React from 'react';
 import { Code2, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
 import { IDENTITY, NAV_LINKS } from '../data';
 
 const socialLinks = [
+  { name: 'WhatsApp', url: IDENTITY.whatsapp },
   { name: 'GitHub', url: IDENTITY.github },
   { name: 'LinkedIn', url: IDENTITY.linkedin },
   { name: 'Mostaql', url: IDENTITY.mostaql },
@@ -50,6 +52,14 @@ const Footer: React.FC = () => {
               className="flex items-center gap-2 text-sm text-gray-500 hover:text-amber-300 transition-colors mb-2"
             >
               <Mail className="w-4 h-4" /> {IDENTITY.email}
+            </a>
+            <a
+              href={IDENTITY.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-400 transition-colors mb-2"
+            >
+              <FaWhatsapp className="w-4 h-4" /> {IDENTITY.phoneDisplay} (WhatsApp)
             </a>
             <div className="flex flex-wrap gap-2 mt-4">
               {socialLinks.map((s) => (

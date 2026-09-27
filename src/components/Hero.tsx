@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Scene3D from './Scene3D';
 import { IDENTITY, STATS } from '../data';
 import { Github, Linkedin, Download, ArrowRight, MessageCircle, Youtube } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
 
 const Hero: React.FC = () => {
   const scrollTo = (id: string) => {
@@ -49,6 +50,15 @@ const Hero: React.FC = () => {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <a
+              href={IDENTITY.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-white bg-emerald-600 hover:bg-emerald-500 transition-all duration-300 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
+            >
+              <FaWhatsapp className="w-5 h-5" />
+              Chat on WhatsApp
+            </a>
+            <a
               href={IDENTITY.cv}
               download="Mahmoud_Abuellil_FullStack_Resume.pdf"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-gray-200 border border-gray-700 hover:border-amber-400/50 hover:text-amber-300 hover:bg-amber-400/5 transition-all duration-300 backdrop-blur-sm"
@@ -61,6 +71,7 @@ const Hero: React.FC = () => {
           <div className="flex items-center gap-5 mb-14">
             {[
               { icon: <Github className="w-5 h-5" />, href: IDENTITY.github, label: 'GitHub' },
+              { icon: <FaWhatsapp className="w-5 h-5" />, href: IDENTITY.whatsapp, label: 'WhatsApp' },
               { icon: <Linkedin className="w-5 h-5" />, href: IDENTITY.linkedin, label: 'LinkedIn' },
               { icon: <MessageCircle className="w-5 h-5" />, href: IDENTITY.mostaql, label: 'Mostaql' },
               { icon: <Youtube className="w-5 h-5" />, href: IDENTITY.youtube, label: 'YouTube' },
