@@ -1,86 +1,78 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Smartphone, Cpu, Zap, MapPin, Languages, Brain } from 'lucide-react';
+import { Globe, Smartphone, Cpu, Zap, MapPin, Languages, Brain, Sparkles } from 'lucide-react';
 import { SERVICES, IDENTITY } from '../data';
 
 const iconMap: Record<string, React.ReactNode> = {
-  globe: <Globe className="w-6 h-6" />,
-  smartphone: <Smartphone className="w-6 h-6" />,
-  cpu: <Cpu className="w-6 h-6" />,
-  zap: <Zap className="w-6 h-6" />,
-  brain: <Brain className="w-6 h-6" />,
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  globe: <Globe className="w-5 h-5 text-cyan-400" />,
+  smartphone: <Smartphone className="w-5 h-5 text-indigo-400" />,
+  cpu: <Cpu className="w-5 h-5 text-emerald-400" />,
+  zap: <Zap className="w-5 h-5 text-amber-400" />,
+  brain: <Brain className="w-5 h-5 text-violet-400" />,
 };
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="relative py-28">
+    <section id="about" className="relative py-28 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={fadeUp}
-          className="text-center mb-16"
-        >
-          <span className="text-sm font-medium text-amber-400 tracking-widest uppercase">About</span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold font-['Space_Grotesk'] text-white">
-            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-rose-400">Production Systems</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-14 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-14 items-center">
+          {/* Left Column: Bio & Core Philosophy */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            className="space-y-6"
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-6 space-y-6"
           >
-            <p className="text-lg text-gray-300 leading-relaxed">
-              I'm <span className="text-white font-semibold">{IDENTITY.name}</span>, a full-stack & mobile AI
-              engineer based in Cairo with <span className="text-amber-300 font-medium">4+ years</span> of
-              commercial experience engineering resilient web platforms, cross-platform mobile apps, and embedding intelligent agentic AI workflows.
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-slate-900/60 text-slate-300 text-xs font-mono tracking-wider uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              Engineering Background
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              Solving complex product challenges with modern engineering.
+            </h2>
+
+            <p className="text-base text-slate-400 leading-relaxed">
+              I’m <span className="text-white font-medium">{IDENTITY.name}</span>, a full-stack & mobile AI engineer based in Cairo. Over the past 4+ years, I’ve delivered production software ranging from consumer apps serving 10,000+ active users to mission-critical offline desktop ERPs with localized hardware integration.
             </p>
-            <p className="text-base text-gray-400 leading-relaxed">
-              Whether shipping consumer applications that scale past <span className="text-amber-300 font-medium">10,000+ active users</span>, orchestrating offline-first desktop ERPs with hardware sync, or tuning local LLMs on private infrastructure—I focus on measurable business impact, robust type safety, and clean architecture.
+
+            <p className="text-base text-slate-400 leading-relaxed">
+              I emphasize clean architecture, strict type safety with TypeScript, and seamless UI responsiveness—ensuring that every line of code adds tangible business value.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">
-                <MapPin className="w-4 h-4 text-amber-400" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-white/10 text-xs font-mono text-slate-300">
+                <MapPin className="w-3.5 h-3.5 text-cyan-400" />
                 {IDENTITY.location}
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">
-                <Languages className="w-4 h-4 text-rose-400" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-white/10 text-xs font-mono text-slate-300">
+                <Languages className="w-3.5 h-3.5 text-indigo-400" />
                 Arabic (Native) · English (Professional)
               </span>
             </div>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          {/* Right Column: Services Grid */}
+          <div className="lg:col-span-6 grid sm:grid-cols-2 gap-4">
             {SERVICES.map((service, i) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ y: -6 }}
-                className="group relative p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-400/40 hover:bg-white/[0.05] transition-all duration-300 overflow-hidden"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                className="p-6 rounded-2xl bg-slate-900/40 border border-white/10 hover:border-cyan-500/30 transition-all duration-200 group"
               >
-                <div className="absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br from-amber-500/15 to-rose-500/15 rounded-full blur-2xl group-hover:from-amber-500/25 group-hover:to-rose-500/25 transition-all duration-500" />
-                <div className="relative">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-rose-500/20 border border-white/10 flex items-center justify-center text-amber-300 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {iconMap[service.icon] || <Cpu className="w-6 h-6" />}
-                  </div>
-                  <h3 className="text-white font-semibold mb-2">{service.title}</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">{service.description}</p>
+                <div className="w-10 h-10 rounded-xl bg-slate-800/80 border border-white/10 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
+                  {iconMap[service.icon] || <Cpu className="w-5 h-5 text-cyan-400" />}
                 </div>
+                <h3 className="text-base font-semibold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
