@@ -1,5 +1,24 @@
 # 📧 Contact Form Setup Guide
 
+## ✅ CURRENT SETUP — Telegram Relay (implemented)
+
+Form submissions POST to the serverless function **`api/contact.js`**, which
+runs on the Vercel mirror (`mahmoud-abuellil.vercel.app/api/contact`) and
+forwards each message to Mahmoud's Telegram chat via the Bot API.
+
+- Secrets (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`) live as **Vercel env
+  vars** — set via `npx vercel env add <NAME> production` after `npx vercel link`.
+  They must never be committed to this repo or shipped in the client bundle.
+- The client calls the endpoint via `REACT_APP_CONTACT_API_URL`
+  (defaults to the Vercel mirror URL — see `.env.example`).
+- Protections: honeypot field, per-IP rate limit (5 / 10 min), length caps,
+  HTML-escaping of user input, mailto fallback if the relay is unreachable.
+- Local test harness: see git history for `test-contact-relay.cjs` usage —
+  it mocks req/res around the real handler (`node test-contact-relay.cjs`
+  with the two env vars exported).
+
+## Legacy options (not wired — kept for reference)
+
 Your contact form is now ready to send real emails! Follow these steps to complete the setup.
 
 ## 🚀 Option 1: EmailJS Setup (Recommended)

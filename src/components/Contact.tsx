@@ -4,25 +4,44 @@ import { Mail, MapPin, Send, CheckCircle, ExternalLink, MessageSquare } from 'lu
 import { FaWhatsapp } from 'react-icons/fa6';
 import { IDENTITY } from '../data';
 
+// Contact submissions are relayed to Telegram through the serverless function
+// on the Vercel mirror (api/contact.js). The bot token lives only in Vercel
+// env vars — the endpoint URL is the only thing in the client bundle.
+const CONTACT_API =
+  process.env.REACT_APP_CONTACT_API_URL || 'https://mahmoud-abuellil.vercel.app/api/contact';
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [sentVia, setSentVia] = useState<'telegram' | 'mail'>('telegram');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
 
     try {
+      const res = await fetch(CONTACT_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, website: honeypot }),
+      });
+      if (!res.ok) throw new Error(`contact API responded ${res.status}`);
+      setSentVia('telegram');
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      // Relay unavailable — fall back to the visitor's mail client so the
+      // message is never lost.
       const subject = encodeURIComponent(`Project Inquiry — ${formData.name}`);
       const body = encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
       );
       window.location.href = `mailto:${IDENTITY.email}?subject=${subject}&body=${body}`;
+      setSentVia('mail');
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-    } catch {
-      setStatus('error');
     } finally {
+      setHoneypot('');
       setTimeout(() => setStatus('idle'), 5000);
     }
   };
@@ -87,6 +106,17 @@ const Contact: React.FC = () => {
           {/* Right Direct Message Form */}
           <div className="lg:col-span-7">
             <form onSubmit={handleSubmit} className="p-8 rounded-2xl bg-slate-900/40 border border-white/10 space-y-4">
+              {/* Honeypot — spam bots fill it, humans never see it */}
+              <input
+                type="text"
+                name="website"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-mono text-slate-400 mb-2">Your Name</label>
@@ -132,12 +162,12 @@ const Contact: React.FC = () => {
                 {status === 'success' ? (
                   <>
                     <CheckCircle className="w-4 h-4 text-emerald-600" />
-                    Opening Mail Client...
+                    {sentVia === 'telegram' ? 'Message Sent ✓' : 'Opening Mail Client...'}
                   </>
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
-                    Send Project Inquiry
+                    {status === 'sending' ? 'Sending...' : 'Send Project Inquiry'}
                   </>
                 )}
               </button>
