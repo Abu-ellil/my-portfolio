@@ -4,11 +4,12 @@ import { FaWhatsapp } from 'react-icons/fa6';
 import { IDENTITY, NAV_LINKS } from '../data';
 
 const socialLinks = [
-  { name: 'WhatsApp', url: IDENTITY.whatsapp },
-  { name: 'GitHub', url: IDENTITY.github },
+  { name: 'Upwork', url: IDENTITY.upwork },
   { name: 'LinkedIn', url: IDENTITY.linkedin },
-  { name: 'Mostaql', url: IDENTITY.mostaql },
+  { name: 'GitHub', url: IDENTITY.github },
+  { name: 'WhatsApp', url: IDENTITY.whatsapp },
   { name: 'YouTube', url: IDENTITY.youtube },
+  { name: 'Mostaql', url: IDENTITY.mostaql },
 ];
 
 const Footer: React.FC = () => {

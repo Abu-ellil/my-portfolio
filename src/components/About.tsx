@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Smartphone, Cpu, Zap, MapPin, Languages } from 'lucide-react';
+import { Globe, Smartphone, Cpu, Zap, MapPin, Languages, Brain } from 'lucide-react';
 import { SERVICES, IDENTITY } from '../data';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -8,6 +8,7 @@ const iconMap: Record<string, React.ReactNode> = {
   smartphone: <Smartphone className="w-6 h-6" />,
   cpu: <Cpu className="w-6 h-6" />,
   zap: <Zap className="w-6 h-6" />,
+  brain: <Brain className="w-6 h-6" />,
 };
 
 const fadeUp = {
@@ -28,7 +29,7 @@ const About: React.FC = () => {
         >
           <span className="text-sm font-medium text-amber-400 tracking-widest uppercase">About</span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold font-['Space_Grotesk'] text-white">
-            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-rose-400">Ideas Into Reality</span>
+            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-rose-400">Production Systems</span>
           </h2>
         </motion.div>
 
@@ -40,16 +41,13 @@ const About: React.FC = () => {
             variants={fadeUp}
             className="space-y-6"
           >
-            <p className="text-lg text-gray-400 leading-relaxed">
-              I'm <span className="text-white font-medium">{IDENTITY.name}</span>, a full-stack
-              engineer based in Cairo with <span className="text-amber-300">4+ years</span> of
-              experience building production-grade applications across web, mobile, and desktop —
-              from real-time delivery platforms to AI-powered agriculture tools.
+            <p className="text-lg text-gray-300 leading-relaxed">
+              I'm <span className="text-white font-semibold">{IDENTITY.name}</span>, a full-stack & mobile AI
+              engineer based in Cairo with <span className="text-amber-300 font-medium">4+ years</span> of
+              commercial experience engineering resilient web platforms, cross-platform mobile apps, and embedding intelligent agentic AI workflows.
             </p>
-            <p className="text-lg text-gray-400 leading-relaxed">
-              I care about <span className="text-orange-300">clean architecture</span>,{' '}
-              <span className="text-rose-300">type-safe codebases</span>, and shipping products
-              that solve real problems for real users — independently, end-to-end.
+            <p className="text-base text-gray-400 leading-relaxed">
+              Whether shipping consumer applications that scale past <span className="text-amber-300 font-medium">10,000+ active users</span>, orchestrating offline-first desktop ERPs with hardware sync, or tuning local LLMs on private infrastructure—I focus on measurable business impact, robust type safety, and clean architecture.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -59,7 +57,7 @@ const About: React.FC = () => {
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">
                 <Languages className="w-4 h-4 text-rose-400" />
-                Arabic · English
+                Arabic (Native) · English (Professional)
               </span>
             </div>
           </motion.div>
@@ -78,10 +76,10 @@ const About: React.FC = () => {
                 <div className="absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br from-amber-500/15 to-rose-500/15 rounded-full blur-2xl group-hover:from-amber-500/25 group-hover:to-rose-500/25 transition-all duration-500" />
                 <div className="relative">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-rose-500/20 border border-white/10 flex items-center justify-center text-amber-300 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {iconMap[service.icon]}
+                    {iconMap[service.icon] || <Cpu className="w-6 h-6" />}
                   </div>
                   <h3 className="text-white font-semibold mb-2">{service.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{service.description}</p>
+                  <p className="text-xs text-gray-400 leading-relaxed">{service.description}</p>
                 </div>
               </motion.div>
             ))}

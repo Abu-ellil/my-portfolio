@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Scene3D from './Scene3D';
 import { IDENTITY, STATS } from '../data';
-import { Github, Linkedin, Download, ArrowRight, MessageCircle, Youtube } from 'lucide-react';
+import { Github, Linkedin, Download, ArrowRight, MessageCircle, Youtube, ExternalLink } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
 
 const Hero: React.FC = () => {
@@ -35,10 +35,10 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed">
-            Building <span className="text-amber-300">production-grade</span> web, mobile & desktop
-            applications with <span className="text-orange-300">MERN</span>,{' '}
-            <span className="text-rose-300">React Native</span> and{' '}
-            <span className="text-amber-300">Next.js</span> — from Cairo to the world.
+            Architecting <span className="text-amber-300 font-medium">production-grade</span> mobile & web systems
+            with <span className="text-rose-300 font-medium">React Native</span>,{' '}
+            <span className="text-orange-300 font-medium">Next.js</span>, and{' '}
+            <span className="text-amber-300 font-medium">AI & LLM Integration</span> — engineered for performance, clean architecture, and real business results.
           </p>
 
           <div className="flex flex-wrap gap-4 mb-14">
@@ -50,13 +50,22 @@ const Hero: React.FC = () => {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <a
+              href={IDENTITY.upwork}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-emerald-300 border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 hover:border-emerald-400 transition-all duration-300 shadow-lg shadow-emerald-500/10 hover:-translate-y-0.5"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Hire on Upwork
+            </a>
+            <a
               href={IDENTITY.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium text-white bg-emerald-600 hover:bg-emerald-500 transition-all duration-300 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
             >
               <FaWhatsapp className="w-5 h-5" />
-              Chat on WhatsApp
+              WhatsApp
             </a>
             <a
               href={IDENTITY.cv}
@@ -71,8 +80,9 @@ const Hero: React.FC = () => {
           <div className="flex items-center gap-5 mb-14">
             {[
               { icon: <Github className="w-5 h-5" />, href: IDENTITY.github, label: 'GitHub' },
-              { icon: <FaWhatsapp className="w-5 h-5" />, href: IDENTITY.whatsapp, label: 'WhatsApp' },
               { icon: <Linkedin className="w-5 h-5" />, href: IDENTITY.linkedin, label: 'LinkedIn' },
+              { icon: <FaWhatsapp className="w-5 h-5" />, href: IDENTITY.whatsapp, label: 'WhatsApp' },
+              { icon: <ExternalLink className="w-5 h-5" />, href: IDENTITY.upwork, label: 'Upwork' },
               { icon: <MessageCircle className="w-5 h-5" />, href: IDENTITY.mostaql, label: 'Mostaql' },
               { icon: <Youtube className="w-5 h-5" />, href: IDENTITY.youtube, label: 'YouTube' },
             ].map((s) => (

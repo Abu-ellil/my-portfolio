@@ -6,7 +6,7 @@ import * as THREE from 'three';
 import { TECH_CATEGORIES } from '../data';
 
 /* Ember palette (matches Scene3D) */
-const RING_COLORS = ['#fbbf24', '#f97316', '#fb7185', '#fdba74', '#fde047'];
+const RING_COLORS = ['#fbbf24', '#f97316', '#fb7185', '#fdba74', '#fde047', '#c084fc'];
 
 /** Each tech category = an orbiting ring of small 3D shapes that shy away from the cursor. */
 function CategoryRing({
@@ -64,13 +64,14 @@ function CategoryRing({
 
 /** Atom-like visual: nucleus + one ring per tech category. */
 function TechAtom() {
-  const rings = [
-    { count: TECH_CATEGORIES[0].items.length, radius: 1.35, tilt: 0.35, speed: 0.35, offset: 0.0, color: RING_COLORS[0] },
-    { count: TECH_CATEGORIES[1].items.length, radius: 1.85, tilt: -0.5, speed: -0.26, offset: 1.2, color: RING_COLORS[1] },
-    { count: TECH_CATEGORIES[2].items.length, radius: 2.35, tilt: 0.85, speed: 0.2, offset: 2.4, color: RING_COLORS[2] },
-    { count: TECH_CATEGORIES[3].items.length, radius: 2.85, tilt: -0.25, speed: -0.15, offset: 3.6, color: RING_COLORS[3] },
-    { count: TECH_CATEGORIES[4].items.length, radius: 3.3, tilt: 0.15, speed: 0.11, offset: 4.8, color: RING_COLORS[4] },
-  ];
+  const rings = TECH_CATEGORIES.map((cat, i) => ({
+    count: cat.items.length,
+    radius: 1.25 + i * 0.42,
+    tilt: (i % 2 === 0 ? 1 : -1) * (0.3 + i * 0.12),
+    speed: (i % 2 === 0 ? 1 : -1) * (0.32 - i * 0.03),
+    offset: i * 1.05,
+    color: RING_COLORS[i % RING_COLORS.length],
+  }));
   const core = useRef<THREE.Mesh>(null!);
   const coreMat = useRef<THREE.MeshBasicMaterial>(null!);
   const scale = useRef(1);

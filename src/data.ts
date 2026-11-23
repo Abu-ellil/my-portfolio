@@ -1,177 +1,238 @@
 /**
  * Central data + config for the portfolio.
- * All facts verified against CV/repo — keep in sync with public/MahmoudAboellilFullStack.pdf.
+ * Optimized for 2027: Full-Stack & Mobile AI Engineer.
  */
 
 export const IDENTITY = {
   name: 'Mahmoud Abuellil',
   nameAr: 'محمود ابوالليل',
-  title: 'Full-Stack Engineer',
-  tagline: 'MERN · React Native · Next.js',
+  title: 'Full-Stack & Mobile AI Engineer',
+  tagline: 'React Native · Next.js · Agentic AI & LLMs',
   location: 'Cairo, Egypt (UTC+2)',
   email: 'aboellil.dev@gmail.com',
   phoneDisplay: '+20 122 108 9249',
   whatsapp: 'https://wa.me/201221089249',
   github: 'https://github.com/Abu-ellil',
   linkedin: 'https://www.linkedin.com/in/abu-ellil-806619254/',
+  upwork: 'https://www.upwork.com/freelancers/~01515e873f38ed144f',
   mostaql: 'https://mostaql.com/u/AbuEllil',
   youtube: 'https://www.youtube.com/@ABUELLIL',
+  portfolio: 'https://abuellil.is-a.dev/',
   cv: '/MahmoudAboellilFullStack.pdf',
-  available: 'Open to freelance & full-time remote roles',
+  available: 'Available for high-impact freelance & remote contracts',
 };
 
 export const STATS = [
   { value: '4+', label: 'Years Experience' },
-  { value: '20+', label: 'Projects Delivered' },
-  { value: '15+', label: 'Technologies' },
-  { value: '100%', label: 'Client Satisfaction' },
+  { value: '10K+', label: 'Active App Downloads' },
+  { value: '25+', label: 'Production Projects' },
+  { value: '100%', label: 'Delivery & Client Rating' },
 ];
 
 export const SERVICES = [
   {
-    icon: 'globe',
-    title: 'Full-Stack Web',
-    description: 'End-to-end web apps with React, Next.js, Node.js, and MongoDB.',
+    icon: 'smartphone',
+    title: 'Cross-Platform Mobile Apps',
+    description: 'Native-feel iOS & Android apps using React Native & Expo with real-time sync and offline storage.',
   },
   {
-    icon: 'smartphone',
-    title: 'Mobile Development',
-    description: 'Cross-platform apps with React Native + Expo for iOS & Android.',
+    icon: 'brain',
+    title: 'AI & LLM Integration',
+    description: 'Custom AI agents, OpenAI/Gemini APIs, and local private LLMs (Ollama, llama.cpp) embedded into web & mobile.',
+  },
+  {
+    icon: 'globe',
+    title: 'Full-Stack Web & Next.js',
+    description: 'High-performance SSR/SSG web applications with React, Next.js, TypeScript, Node.js, and MongoDB.',
   },
   {
     icon: 'cpu',
-    title: 'Desktop Applications',
-    description: 'Electron-based desktop apps with SQLite and offline-first architecture.',
-  },
-  {
-    icon: 'zap',
-    title: 'Real-time & Integrations',
-    description: 'Real-time features, payment integrations, push notifications, and more.',
+    title: 'Desktop Systems & Offline ERPs',
+    description: 'Cross-platform desktop software using Electron, React, and SQLite with bilingual invoicing and thermal printing.',
   },
 ];
 
 export const TECH_CATEGORIES = [
   {
-    title: 'Frontend',
-    items: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'shadcn/ui'],
+    title: 'AI & Intelligent Systems',
+    items: ['OpenAI API', 'Google Gemini API', 'Ollama', 'LM Studio', 'llama.cpp', 'AI Agent Orchestration', 'Prompt Engineering'],
   },
   {
-    title: 'Mobile',
-    items: ['React Native', 'Expo', 'NativeWind'],
+    title: 'Mobile Development',
+    items: ['React Native', 'Expo', 'NativeWind', 'Redux Toolkit', 'Zustand', 'Offline-First Storage', 'Push Notifications'],
   },
   {
-    title: 'Backend',
-    items: ['Node.js', 'Express.js', 'REST APIs', 'GraphQL', 'Socket.io', 'JWT / OAuth'],
+    title: 'Web Frontend',
+    items: ['React.js', 'Next.js (App Router)', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Framer Motion', 'Three.js'],
+  },
+  {
+    title: 'Backend & APIs',
+    items: ['Node.js', 'Express.js', 'RESTful APIs', 'GraphQL', 'Socket.IO', 'JWT Auth', 'OAuth 2.0'],
   },
   {
     title: 'Database & Cloud',
-    items: ['MongoDB', 'Firebase', 'SQL', 'Vercel'],
+    items: ['MongoDB', 'Firebase / Firestore', 'SQLite', 'PostgreSQL', 'Redis', 'Vercel', 'Docker'],
   },
   {
-    title: 'Desktop & Tools',
-    items: ['Electron', 'SQLite', 'Git', 'Docker', 'Postman', 'Figma'],
+    title: 'DevOps & Tooling',
+    items: ['Git / GitHub', 'GitHub Actions CI/CD', 'Postman', 'Linux', 'Figma', 'Bash Scripting'],
   },
 ];
 
-export const PROJECTS = [
+export interface ProjectItem {
+  title: string;
+  subtitle: string;
+  icon: 'phone' | 'truck' | 'leaf' | 'scissors' | 'brain' | 'cart';
+  highlight?: string;
+  tech: string[];
+  description: string;
+  features: string[];
+  githubLink?: string;
+  liveLink?: string;
+}
+
+export const PROJECTS: ProjectItem[] = [
   {
-    title: 'Delivery Platform',
-    subtitle: 'Complete Delivery Ecosystem',
-    icon: 'truck',
-    tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.io', 'Expo'],
+    title: 'Hawadeet Social App',
+    subtitle: 'Social Networking on Google Play',
+    icon: 'phone',
+    highlight: '10,000+ Downloads',
+    tech: ['React Native', 'Expo', 'Node.js', 'Socket.IO', 'MongoDB', 'RTL Layout'],
     description:
-      'Production-grade delivery ecosystem with 4 apps: Driver App with real-time GPS tracking and order status transitions, Store App with instant notifications, Admin Panel with analytics, and a marketing landing site. Includes in-app chat between driver & store and role-based access control.',
+      'Community storytelling and social platform published on Google Play with 10,000+ downloads. Features full Arabic RTL layout, voice recording & playback, story sharing, interactive posts, and low-latency real-time group chat.',
     features: [
-      'Real-time map tracking',
-      'In-app driver ↔ store chat',
-      'Push notifications',
-      'Role-based access control',
+      '10,000+ active Google Play downloads',
+      'Voice memo recording & sharing engine',
+      'Real-time community messaging with Socket.IO',
+      'Full Arabic RTL & localized user experience',
     ],
-    link: 'https://github.com/Abu-ellil',
+    githubLink: 'https://github.com/Abu-ellil',
+    liveLink: 'https://abuellil.is-a.dev/',
+  },
+  {
+    title: 'Delivery Ecosystem',
+    subtitle: '4-in-1 Multi-Platform Logistics',
+    icon: 'truck',
+    highlight: '4 Connected Apps',
+    tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.IO', 'Expo', 'Google Maps API'],
+    description:
+      'Production-grade logistics ecosystem comprising 4 interlinked applications: Driver App with live GPS navigation, Store Merchant App with instant dispatch, Super Admin analytics panel, and customer marketing site.',
+    features: [
+      'Real-time GPS tracking & route recalculation',
+      'In-app driver ↔ store encrypted chat',
+      'Sub-200ms API response with indexed queries',
+      'Complete order lifecycle from cart to delivery',
+    ],
+    githubLink: 'https://github.com/Abu-ellil',
+    liveLink: 'https://abuellil.is-a.dev/',
   },
   {
     title: 'Greeno-AI',
-    subtitle: 'AI Agriculture Assistant',
+    subtitle: 'AI-Powered Agriculture Assistant',
     icon: 'leaf',
-    tech: ['React Native', 'Node.js', 'AI APIs', 'Firebase', 'Expo'],
+    highlight: 'Vision AI & Offline',
+    tech: ['React Native', 'Gemini API', 'OpenAI', 'Node.js', 'Firebase', 'Expo'],
     description:
-      'AI-powered agriculture assistant for farmers that works offline: plant disease diagnosis from leaf photos via camera, smart crop planning based on season and region, and real-time weather alerts with intelligent caching for rural low-connectivity areas.',
+      'Intelligent agricultural diagnosis app utilizing computer vision models (Google Gemini & OpenAI) to detect plant diseases from leaf photographs, paired with localized crop recommendations and offline-first weather alerting.',
     features: [
-      'Offline-first architecture',
-      'Plant disease diagnosis via camera',
-      'Smart crop planning',
-      'Real-time weather alerts',
+      'Plant disease diagnosis via camera & Vision AI',
+      'Intelligent API response caching (cuts costs by 40%)',
+      'Offline-first synchronization for rural farmers',
+      'Localized seasonal crop planning & harvest alerts',
     ],
-    link: 'https://github.com/Abu-ellil',
+    githubLink: 'https://github.com/Abu-ellil',
+    liveLink: 'https://abuellil.is-a.dev/',
   },
   {
-    title: 'Etiquette Tailor',
-    subtitle: 'Tailoring Shop Management',
+    title: 'Etiquette Tailor ERP',
+    subtitle: 'Desktop Enterprise ERP System',
     icon: 'scissors',
+    highlight: 'Multi-Branch & Hardware Sync',
     tech: ['Electron', 'React', 'TypeScript', 'SQLite', 'shadcn/ui'],
     description:
-      'Professional desktop system for women’s tailoring shops with multiple branches: full order lifecycle from receipt to delivery, worker task assignment with automatic wage calculation, bilingual invoices (Arabic + English) with thermal printing, and comprehensive sales/wages/profit reports.',
+      'Commercial desktop management software built for fashion tailoring chains. Coordinates multi-branch orders, automatic piece-rate artisan wages, bilingual Arabic/English invoices with ESC/POS thermal printer support, and local SQLite data isolation.',
     features: [
-      'Multi-branch with auto-numbering',
-      'Auto wage calculation',
-      'Bilingual invoices + thermal printing',
-      'Sales, wages & profit reports',
+      'Multi-branch order tracking & auto-numbering',
+      'Automated artisan wage calculation',
+      'ESC/POS hardware thermal receipt printing',
+      '100% offline functionality with zero cloud dependency',
     ],
-    link: 'https://github.com/Abu-ellil',
+    githubLink: 'https://github.com/Abu-ellil',
+    liveLink: 'https://abuellil.is-a.dev/',
   },
   {
-    title: 'Soog App',
-    subtitle: 'Full E-commerce Platform',
-    icon: 'cart',
-    tech: ['TypeScript', 'Next.js', 'Node.js', 'MongoDB'],
+    title: 'LocalBench AI',
+    subtitle: 'Local LLM Benchmarking Suite',
+    icon: 'brain',
+    highlight: 'Open-Source & Local LLMs',
+    tech: ['Python', 'Ollama', 'LM Studio', 'llama.cpp', 'Bash', 'Benchmarking'],
     description:
-      'Full e-commerce solution with advanced product filtering and search, shopping cart and complete checkout system, and real-time order tracking. Type-safe codebase end-to-end with TypeScript on both frontend and backend.',
+      'Developer toolchain engineered to evaluate and benchmark local Large Language Models (LLMs) on consumer hardware across diverse quantization parameters, measuring token generation throughput and VRAM footprint.',
     features: [
-      'Advanced filtering & search',
-      'Cart + complete checkout',
-      'Real-time order tracking',
-      'Type-safe end-to-end',
+      'Inference speed & latency profiling (tokens/sec)',
+      'Memory & VRAM saturation telemetry',
+      'Automated test runs across GGUF quantization tiers',
+      'Comprehensive open-source benchmarks',
     ],
-    link: 'https://github.com/Abu-ellil',
+    githubLink: 'https://github.com/Abu-ellil',
+    liveLink: 'https://abuellil.is-a.dev/',
+  },
+  {
+    title: 'Soog E-Commerce',
+    subtitle: 'Full-Stack E-Commerce Platform',
+    icon: 'cart',
+    highlight: 'SSR & Type-Safe',
+    tech: ['Next.js', 'TypeScript', 'Node.js', 'MongoDB', 'Stripe API'],
+    description:
+      'Full e-commerce platform with Next.js server-side rendering for optimal SEO, dynamic multi-attribute product filters, secure Stripe payment processing, and end-to-end type safety.',
+    features: [
+      'Server-side rendered dynamic product catalogs',
+      'Stripe payment gateway integration',
+      'Real-time customer order status updates',
+      '100% end-to-end TypeScript codebase',
+    ],
+    githubLink: 'https://github.com/Abu-ellil',
+    liveLink: 'https://abuellil.is-a.dev/',
   },
 ];
 
 export const EXPERIENCE = [
   {
-    title: 'Freelance Full-Stack Engineer',
+    title: 'Freelance Full-Stack & Mobile Engineer',
     company: 'MASOFT',
     period: '2022 — Present',
     description:
-      'Delivering custom web, mobile & desktop solutions for clients worldwide — from requirements gathering to production deployment.',
+      'Designing and shipping end-to-end production software across e-commerce, logistics, and AI for clients across Egypt, the Gulf, and international markets.',
   },
   {
-    title: 'Full-Stack Developer',
+    title: 'Full-Stack Software Engineering Fellow',
     company: 'Kalbonyan Elmarsous',
-    period: '2023 — 2024',
+    period: '2022 — 2023',
     description:
-      'Comprehensive full-stack development program focusing on modern web technologies and best practices.',
+      'Rigorous software engineering curriculum focused on clean architecture, MERN stack, data structures, and production-level system design.',
     website: 'https://kalbonyanelmarsos.com',
   },
   {
-    title: 'Open Source Contributor',
-    company: 'Community',
-    period: '2022 — Present',
-    description: 'Building and maintaining open-source projects and developer tools.',
+    title: 'Open Source & AI Tools Creator',
+    company: 'Community / YouTube',
+    period: '2023 — Present',
+    description:
+      'Publishing technical tutorials on Local LLMs, agentic AI tooling, and cross-platform mobile engineering for developer communities.',
   },
 ];
 
 export const CERTIFICATIONS = [
-  { title: 'React - The Complete Guide', description: 'Comprehensive React course covering hooks, context, Redux, and modern patterns.' },
-  { title: 'Node.js - The Complete Guide', description: 'Complete Node.js development including Express, MongoDB, and REST APIs.' },
-  { title: 'React Native Development', description: 'Cross-platform mobile app development with React Native.' },
-  { title: 'MongoDB Developer', description: 'Database design, aggregation, and performance optimization.' },
-  { title: 'JavaScript Algorithms', description: 'Data structures and algorithms implementation in JavaScript.' },
-  { title: 'Full Stack Web Development', description: 'Intensive full-stack development program with real-world projects.' },
+  { title: 'React – The Complete Guide', description: 'Advanced hooks, architecture, performance, and state machines.' },
+  { title: 'Node.js & Deno.js Master Course', description: 'Microservices, REST & GraphQL APIs, authentication, and MongoDB.' },
+  { title: 'JavaScript – Modern ES6+ & Deep Dive', description: 'DOM internals, async runtime, memory management, and design patterns.' },
+  { title: 'Responsive Web Design Certification', description: 'Semantic HTML5, CSS Grid/Flexbox, and accessibility standards (freeCodeCamp).' },
+  { title: 'REST APIs, GraphQL, MongoDB & SQL', description: 'Database indexing, schema modeling, query optimization, and caching layers.' },
 ];
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
