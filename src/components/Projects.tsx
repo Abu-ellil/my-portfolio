@@ -67,6 +67,16 @@ const Projects: React.FC = () => {
                 }`}
               >
                 <div>
+                  {/* Cover Image (real screenshots / brand tiles) */}
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt={`${project.title} — project preview`}
+                      loading="lazy"
+                      className="w-full h-40 object-cover rounded-xl border border-white/10 mb-5"
+                    />
+                  )}
+
                   {/* Top Bar with Icon and Links */}
                   <div className="flex items-center justify-between mb-5">
                     <div className="w-11 h-11 rounded-xl bg-slate-800/80 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">

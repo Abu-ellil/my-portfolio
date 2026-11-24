@@ -84,6 +84,7 @@ export interface ProjectItem {
   subtitle: string;
   icon: 'phone' | 'truck' | 'leaf' | 'scissors' | 'brain' | 'cart';
   highlight?: string;
+  image?: string;
   tech: string[];
   description: string;
   features: string[];
@@ -97,6 +98,7 @@ export const PROJECTS: ProjectItem[] = [
     subtitle: 'Social Networking on Google Play',
     icon: 'phone',
     highlight: '10,000+ Downloads',
+    image: '/projects/hawadeet-cover.jpg',
     tech: ['React Native', 'Expo', 'Node.js', 'Socket.IO', 'MongoDB', 'RTL Layout'],
     description:
       'Community storytelling and social platform published on Google Play with 10,000+ downloads. Features full Arabic RTL layout, voice recording & playback, story sharing, interactive posts, and low-latency real-time group chat.',
@@ -106,14 +108,14 @@ export const PROJECTS: ProjectItem[] = [
       'Real-time community messaging with Socket.IO',
       'Full Arabic RTL & localized user experience',
     ],
-    githubLink: 'https://github.com/Abu-ellil',
-    liveLink: 'https://abuellil.is-a.dev/',
+    liveLink: 'https://play.google.com/store/apps/details?id=com.hawadeet.app',
   },
   {
     title: 'Delivery Ecosystem',
     subtitle: '4-in-1 Multi-Platform Logistics',
     icon: 'truck',
     highlight: '4 Connected Apps',
+    image: '/projects/delivery-cover.jpg',
     tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.IO', 'Expo', 'Google Maps API'],
     description:
       'Production-grade logistics ecosystem comprising 4 interlinked applications: Driver App with live GPS navigation, Store Merchant App with instant dispatch, Super Admin analytics panel, and customer marketing site.',
@@ -123,14 +125,14 @@ export const PROJECTS: ProjectItem[] = [
       'Sub-200ms API response with indexed queries',
       'Complete order lifecycle from cart to delivery',
     ],
-    githubLink: 'https://github.com/Abu-ellil',
-    liveLink: 'https://abuellil.is-a.dev/',
+    githubLink: 'https://github.com/Abu-ellil/Tawseelah2025',
   },
   {
     title: 'Greeno-AI',
     subtitle: 'AI-Powered Agriculture Assistant',
     icon: 'leaf',
     highlight: 'Vision AI & Offline',
+    image: '/projects/greeno-cover.jpg',
     tech: ['React Native', 'Gemini API', 'OpenAI', 'Node.js', 'Firebase', 'Expo'],
     description:
       'Intelligent agricultural diagnosis app utilizing computer vision models (Google Gemini & OpenAI) to detect plant diseases from leaf photographs, paired with localized crop recommendations and offline-first weather alerting.',
@@ -140,14 +142,14 @@ export const PROJECTS: ProjectItem[] = [
       'Offline-first synchronization for rural farmers',
       'Localized seasonal crop planning & harvest alerts',
     ],
-    githubLink: 'https://github.com/Abu-ellil',
-    liveLink: 'https://abuellil.is-a.dev/',
+    githubLink: 'https://github.com/Abu-ellil/AI-Farmer2',
   },
   {
     title: 'Etiquette Tailor ERP',
     subtitle: 'Desktop Enterprise ERP System',
     icon: 'scissors',
     highlight: 'Multi-Branch & Hardware Sync',
+    image: '/projects/etiquette-cover.jpg',
     tech: ['Electron', 'React', 'TypeScript', 'SQLite', 'shadcn/ui'],
     description:
       'Commercial desktop management software built for fashion tailoring chains. Coordinates multi-branch orders, automatic piece-rate artisan wages, bilingual Arabic/English invoices with ESC/POS thermal printer support, and local SQLite data isolation.',
@@ -157,14 +159,14 @@ export const PROJECTS: ProjectItem[] = [
       'ESC/POS hardware thermal receipt printing',
       '100% offline functionality with zero cloud dependency',
     ],
-    githubLink: 'https://github.com/Abu-ellil',
-    liveLink: 'https://abuellil.is-a.dev/',
+    githubLink: 'https://github.com/Abu-ellil/etiquette-tailor',
   },
   {
     title: 'LocalBench AI',
     subtitle: 'Local LLM Benchmarking Suite',
     icon: 'brain',
     highlight: 'Open-Source & Local LLMs',
+    image: '/projects/localbench-cover.jpg',
     tech: ['Python', 'Ollama', 'LM Studio', 'llama.cpp', 'Bash', 'Benchmarking'],
     description:
       'Developer toolchain engineered to evaluate and benchmark local Large Language Models (LLMs) on consumer hardware across diverse quantization parameters, measuring token generation throughput and VRAM footprint.',
@@ -174,14 +176,14 @@ export const PROJECTS: ProjectItem[] = [
       'Automated test runs across GGUF quantization tiers',
       'Comprehensive open-source benchmarks',
     ],
-    githubLink: 'https://github.com/Abu-ellil',
-    liveLink: 'https://abuellil.is-a.dev/',
+    githubLink: 'https://github.com/Abu-ellil/Arabic-Ai-Lab',
   },
   {
     title: 'Soog E-Commerce',
     subtitle: 'Full-Stack E-Commerce Platform',
     icon: 'cart',
     highlight: 'SSR & Type-Safe',
+    image: '/projects/soog-cover.jpg',
     tech: ['Next.js', 'TypeScript', 'Node.js', 'MongoDB', 'Stripe API'],
     description:
       'Full e-commerce platform with Next.js server-side rendering for optimal SEO, dynamic multi-attribute product filters, secure Stripe payment processing, and end-to-end type safety.',
@@ -191,8 +193,7 @@ export const PROJECTS: ProjectItem[] = [
       'Real-time customer order status updates',
       '100% end-to-end TypeScript codebase',
     ],
-    githubLink: 'https://github.com/Abu-ellil',
-    liveLink: 'https://abuellil.is-a.dev/',
+    githubLink: 'https://github.com/Abu-ellil/Soog-app',
   },
 ];
 
