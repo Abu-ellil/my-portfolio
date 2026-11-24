@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Scene3D from './Scene3D';
+import StackGame from './StackGame';
+import { useStack } from '../game/stack';
 import { IDENTITY, STATS } from '../data';
 import {
   Github,
@@ -13,11 +15,33 @@ import {
   Check,
   Copy,
   Sparkles,
+  Gamepad2,
+  SquareTerminal,
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa6';
 
+const TabButton: React.FC<{ active: boolean; onClick: () => void; icon: React.ReactNode; label: string }> = ({
+  active,
+  onClick,
+  icon,
+  label,
+}) => (
+  <button
+    onClick={onClick}
+    aria-pressed={active}
+    className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-sans transition-colors ${
+      active ? 'bg-white/10 text-white' : 'text-slate-500 hover:text-slate-300'
+    }`}
+  >
+    {icon}
+    {label}
+  </button>
+);
+
 const Hero: React.FC = () => {
   const [copied, setCopied] = useState(false);
+  const [tab, setTab] = useState<'game' | 'terminal'>('game');
+  const stack = useStack();
 
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -126,33 +150,44 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Sleek Interactive Tech Terminal */}
+          {/* Right Column: Deploy Stack mini-game + tech terminal (tabbed window) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5"
           >
-            <div className="rounded-2xl border border-white/10 bg-slate-950/80 backdrop-blur-xl shadow-2xl overflow-hidden font-mono text-xs">
-              {/* Terminal Header */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-slate-900/50">
+            <div className="rounded-2xl border border-white/10 bg-slate-950/80 backdrop-blur-xl shadow-2xl overflow-hidden font-mono text-xs mx-auto w-full max-w-[560px] lg:max-w-none">
+              {/* Card Header: window dots + tabs */}
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10 bg-slate-900/50">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-rose-500/80" />
                   <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                   <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 text-slate-400 text-[11px] font-sans">abuellil-terminal</span>
+                  <div className="ml-3 flex items-center gap-1">
+                    <TabButton active={tab === 'game'} onClick={() => setTab('game')} icon={<Gamepad2 className="w-3 h-3" />} label="deploy-stack" />
+                    <TabButton active={tab === 'terminal'} onClick={() => setTab('terminal')} icon={<SquareTerminal className="w-3 h-3" />} label="terminal" />
+                  </div>
                 </div>
-                <button
-                  onClick={copyEmail}
-                  className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
-                  title="Copy email"
-                >
-                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span className="text-[10px]">{copied ? 'Copied' : 'Copy Email'}</span>
-                </button>
+                {tab === 'game' ? (
+                  <span className="text-[10px] text-slate-400">
+                    Best <span className="text-cyan-400 font-bold">{stack.best}</span>
+                  </span>
+                ) : (
+                  <button
+                    onClick={copyEmail}
+                    className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
+                    title="Copy email"
+                  >
+                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span className="text-[10px]">{copied ? 'Copied' : 'Copy Email'}</span>
+                  </button>
+                )}
               </div>
 
-              {/* Terminal Body */}
+              {tab === 'game' ? (
+                <StackGame />
+              ) : (
               <div className="p-5 space-y-3.5 text-slate-300 leading-relaxed">
                 <div>
                   <span className="text-emerald-400">root@abuellil</span>
@@ -196,6 +231,7 @@ const Hero: React.FC = () => {
                   </a>
                 </div>
               </div>
+              )}
             </div>
           </motion.div>
         </div>

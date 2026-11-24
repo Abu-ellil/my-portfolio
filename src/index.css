@@ -69,3 +69,50 @@ body {
 canvas {
   outline: none;
 }
+
+/* Deploy Stack — hero mini-game micro-interactions */
+.stack-perfect {
+  animation: stack-perfect 0.8s ease-out forwards;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes stack-perfect {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 14px) scale(0.7);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1.15);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -10px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -28px) scale(0.95);
+  }
+}
+
+.stack-pop {
+  animation: stack-pop 0.42s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@keyframes stack-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-perfect,
+  .stack-pop {
+    animation: none;
+  }
+}
